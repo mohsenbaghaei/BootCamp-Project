@@ -1,4 +1,11 @@
 body{
   margin: 0;
   padding: 0;
+  overscroll-behavior: none;
+  scroll-behavior: smooth;
+  height: 100%;
+  font-size: 16px !important;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
 }
