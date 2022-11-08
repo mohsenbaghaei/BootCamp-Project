@@ -1,0 +1,31 @@
+.quranContainer{
+    background-color: #82bbca;
+    background-image: url(/src/components/images/pattern-body.76e29d6.png);
+}
+.quranMain{
+    padding-top: 2rem !important;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    background: url(/src/components/images/nasim-rezvan-bg-pattern.18658f7.png);
+    background-color: #faf9f6;
+    padding-bottom: 4.8em;
+    flex: 1 1;
+    font-size: 0.875rem;
+}
+.icon{
+    justify-content: center;
+    align-items: center;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+}
+.topIcon{
+    width: 100%;
+    height: auto;
+    margin: -2rem 0 -8%;
+}
+.quranCenter{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
