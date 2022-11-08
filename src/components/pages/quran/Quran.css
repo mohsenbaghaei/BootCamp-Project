@@ -12,20 +12,68 @@
     flex: 1 1;
     font-size: 0.875rem;
 }
-.icon{
-    justify-content: center;
-    align-items: center;
-    display: block;
-    width: 2rem;
-    height: 2rem;
-}
 .topIcon{
     width: 100%;
     height: auto;
     margin: -2rem 0 -8%;
 }
+.icon{
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+.svg{
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+    
+}
 .quranCenter{
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+}
+.quranSwitcher{
+    display: flex;
+    flex-direction: column;
+}
+.multiSwitch{
+    background: #8D8575;
+    display: flex;
+    border-radius: 1rem;
+    padding: 0.2rem;
+    display: table;
+    margin: auto;
+    font-size:inherit;
+}
+
+.multiSwitchButton {
+    color: #F3F3F3;
+    border: 1.5px solid transparent;
+    border-radius: 1rem;
+    background: transparent;
+    min-width: 4.375rem;
+    cursor: pointer;
+    font-size:inherit;
+    
+}
+.multiSwitchButton--active {
+    background: #DBD4C7;
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #89785B;
+}
+.multiSwitchInput{
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border: 0.125rem solid #8D8575;
+    border-top: 0;
+    margin: 0 1rem;
+    padding: 0.2rem 3rem;
+    color: #B6B0A5;
+}
+.multiSwitchInput::placeholder{
+    direction: rtl;
+    text-align: right;
+    color: #B6B0A5;
+    font-size:1rem;
 }
