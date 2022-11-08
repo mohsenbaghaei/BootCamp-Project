@@ -77,3 +77,14 @@
     color: #B6B0A5;
     font-size:1rem;
 }
+.quranHome {
+    margin: 0.8rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}

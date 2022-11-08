@@ -1,6 +1,9 @@
 import React , { useState } from 'react';
 import './Quran.css'
+import { Link } from 'react-router-dom';
 import Header from '../header/Header'
+import QuranSura from '../quranSura/QuranSura';
+import {Sura} from '../../DataBase/QuranDate'
 
 const Quran :React.FC = () => {
     const [sura , setSura] = useState(true)
@@ -112,6 +115,11 @@ const Quran :React.FC = () => {
                             className='multiSwitchInput' />
                         
                     </form>
+                </div>
+                <div className='quranHome'>
+                    {
+                        Sura.map((sura) => <Link to=''><QuranSura/></Link>)
+                    }
                 </div>
             </div>
         </div>

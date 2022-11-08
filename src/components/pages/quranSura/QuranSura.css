@@ -1,0 +1,64 @@
+.suraItem{
+    height: 3.25rem;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin: 0 1em;
+    padding: 0.5rem;
+    color: #5F5036;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    content-visibility: auto;
+    contain-intrinsic-size: 3.25rem;
+    text-align: inherit;
+}
+.suraNumber{
+    width: 2.625rem;
+    height: 2.625rem;
+    position: relative;
+    flex-shrink: 0;
+}
+.quranSuraNummber{
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+}
+.mainSuraNumber{
+    position: relative;
+}
+.svg{
+    width: 100%;
+    height: 100%;
+    fill: currentColor;   
+}
+.suraName{
+    margin-right: 0.5rem;
+}
+.flexGrow{
+    flex-grow: 1 !important;
+}
+.truncateText{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.shrink{
+    flex-shrink: 0;
+}
+.itemButton{
+    margin-right: 0.7rem;
+    border: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.itemButtonPlay{
+    background: #00B3A0;
+    color: white;
+    padding: 0.53rem 0.4rem 0.53rem 0.5rem
+}
