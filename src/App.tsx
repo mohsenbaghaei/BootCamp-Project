@@ -11,8 +11,8 @@ const App : React.FC = () => {
       <div className='routerRoot'>
       <Routes>
         {/* <Route path = '/' element={<Main/>} /> */}
-        <Route path = '/' element={<Quran/>} />
-        <Route path = '/page/:id' element={<QuranPage/>} />
+        {/* <Route path = '/' element={<Quran/>} /> */}
+        <Route path = '/' element={<QuranPage/>} />
       </Routes>
       </div>
     </div>
