@@ -6,11 +6,11 @@ import QuranSura from '../quranSura/QuranSura';
 import {Sura} from '../../DataBase/QuranDate'
 
 const Quran :React.FC = () => {
-    const [sura , setSura] = useState(true)
-    const [juz , setJuz] = useState(false)
-    const [page , setPage] = useState(false)
-    const [favorite , setFavorite] = useState(false)
-    const [holder , setHolder] = useState('نام سوره را تایپ کنید...')
+    const [sura , setSura] = useState<boolean>(true)
+    const [juz , setJuz] = useState<boolean>(false)
+    const [page , setPage] = useState<boolean>(false)
+    const [favorite , setFavorite] = useState<boolean>(false)
+    const [holder , setHolder] = useState<string>('نام سوره را تایپ کنید...')
     
     const changeSura = () => {
         setSura(true) ;
@@ -41,9 +41,9 @@ const Quran :React.FC = () => {
         setHolder('جستجو در موارد منتخب');
     }
     return (
-        <div>
-            <div className='quranContainer'>
-            <Header/>
+        <div className='quranContainer'>
+            <div>
+            <Header headerName={'قرآن'}/>
             </div>
             <div className='quranMain'>
                 <i className='icon topIcon'>
@@ -117,9 +117,19 @@ const Quran :React.FC = () => {
                     </form>
                 </div>
                 <div className='quranHome'>
-                    {
-                        Sura.map((sura) => <Link to=''><QuranSura/></Link>)
-                    }
+                    {sura ? (
+                        <>
+                            {
+                            Sura.map((sura , index) =>
+                            <div key={index}>
+                                <Link to='' className='Link'>
+                                    <QuranSura sura={sura} index={index}/>
+                                </Link>
+                            </div>)
+                        }
+                        </>
+                    ) : ('')}
+                    
                 </div>
             </div>
         </div>

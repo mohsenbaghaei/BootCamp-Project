@@ -28,3 +28,9 @@ body{
 div , svg{
     display: block;
 }
+.Link{
+    text-decoration: none;
+}
+i{
+    font-style: italic;
+}

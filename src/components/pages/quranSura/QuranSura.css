@@ -3,20 +3,28 @@
     display: flex;
     align-items: center;
     font-weight: bold;
-    margin: 0 1em;
+    margin: 0 0.5em;
     padding: 0.5rem;
     color: #5F5036;
     cursor: pointer;
     border-radius: 0.5rem;
     content-visibility: auto;
-    contain-intrinsic-size: 3.25rem;
     text-align: inherit;
+}
+.suraitemSecond{
+    background-color: rgba(225, 219, 208, 0.5);
 }
 .suraNumber{
     width: 2.625rem;
     height: 2.625rem;
-    position: relative;
+    position: relative !important;
     flex-shrink: 0;
+    text-decoration: none;
+}
+.quranCenter{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 .quranSuraNummber{
     position: absolute !important;
@@ -27,16 +35,18 @@
     width: inherit;
     height: inherit;
 }
-.mainSuraNumber{
-    position: relative;
+.mainSuraNummber{
+    position: relative !important;
 }
 .svg{
     width: 100%;
     height: 100%;
-    fill: currentColor;   
+    fill: currentColor; 
+    display: block;  
 }
 .suraName{
     margin-right: 0.5rem;
+    
 }
 .flexGrow{
     flex-grow: 1 !important;
@@ -50,6 +60,7 @@
     flex-shrink: 0;
 }
 .itemButton{
+    background: transparent;
     margin-right: 0.7rem;
     border: 0;
     width: 2rem;
@@ -60,5 +71,5 @@
 .itemButtonPlay{
     background: #00B3A0;
     color: white;
-    padding: 0.53rem 0.4rem 0.53rem 0.5rem
+    padding: 0.53rem 0.5rem 0.53rem 0.6rem
 }

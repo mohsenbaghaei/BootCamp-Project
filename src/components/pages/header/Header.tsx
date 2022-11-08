@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { MdOutlineArrowForwardIos } from 'react-icons/md'
 import { IoSettingsOutline } from 'react-icons/io5'
 import { BiSearchAlt } from 'react-icons/bi'
+import { HeaderName } from '../../DataBase/InterFaces';
 
-const Header : React.FC= () => {
+const Header : React.FC <HeaderName>= ({headerName , headerSubName}) => {
 
     const navigate = useNavigate()
     const Back = () => {
@@ -18,7 +19,10 @@ const Header : React.FC= () => {
                     <div className='mainHeaderPattern'>
                     <div className='mainHeaderContent'>
                         <MdOutlineArrowForwardIos onClick={Back} className='mainHeaderback'/>
-                        قران
+                        <div className='headerFlex'>
+                            <span>{headerName}</span>
+                            <span className='mainHeaderSub'>{headerSubName}</span>
+                        </div>
                         <div className='mainHeaderActions'>
                             <BiSearchAlt className='icons ml2'/>
                             <IoSettingsOutline className='icons'/>

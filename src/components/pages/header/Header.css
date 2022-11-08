@@ -87,3 +87,11 @@
 .ml2{
     margin-left: 0.5rem !important;
 }
+.mainHeaderSub{
+    font-size: 0.8rem;
+    font-weight: 200;
+}
+.headerFlex{
+    display: flex;
+    flex-direction: column !important;
+}
