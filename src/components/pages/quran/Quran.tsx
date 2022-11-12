@@ -3,7 +3,7 @@ import './Quran.css'
 import { Link } from 'react-router-dom';
 import Header from '../header/Header'
 import QuranSura from '../quranSura/QuranSura';
-import {Sura} from '../../DataBase/QuranDate'
+import {Sura , Page} from '../../DataBase/QuranDate'
 
 const Quran :React.FC = () => {
     const [sura , setSura] = useState<boolean>(true)
@@ -11,6 +11,9 @@ const Quran :React.FC = () => {
     const [page , setPage] = useState<boolean>(false)
     const [favorite , setFavorite] = useState<boolean>(false)
     const [holder , setHolder] = useState<string>('نام سوره را تایپ کنید...')
+    let mainSura:any = []
+    let id = 0
+
     
     const changeSura = () => {
         setSura(true) ;
@@ -40,6 +43,14 @@ const Quran :React.FC = () => {
         setFavorite(true)
         setHolder('جستجو در موارد منتخب');
     }
+    Sura.map((sura , index)=> {
+        
+        let preId = Page.findIndex((item)=> index+1 === +item[0])
+        if(preId !== -1){
+            id = preId + 1
+        }
+        mainSura.push([sura,id]) 
+    })
     return (
         <div className='quranContainer'>
             <div>
@@ -120,10 +131,10 @@ const Quran :React.FC = () => {
                     {sura ? (
                         <>
                             {
-                            Sura.map((sura , index) =>
+                            mainSura.map((sura:any , index:number) =>
                             <div key={index}>
-                                <Link to='' className='Link'>
-                                    <QuranSura sura={sura} index={index}/>
+                                <Link to={`/page/${sura[1]}`} className='Link'>
+                                    <QuranSura sura={sura[0]} index={index}/>
                                 </Link>
                             </div>)
                         }
