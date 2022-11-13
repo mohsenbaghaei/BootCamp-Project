@@ -1,0 +1,42 @@
+.quranSettingBox{
+
+    accent-color: #A99160;
+    transition: height 0.3s;
+    overflow: hidden;
+}
+.quranSettingtop{
+    padding-top: 0 !important;
+}
+.quranSettingTitle{
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0;
+    padding-right: 0.7rem;
+    margin-bottom: 0.2rem;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.quranSettingCard{
+    background: #FFFEFD;
+    border: 1px solid #DCDCDC;
+}
+.quranSettingCard{
+    box-sizing: border-box;
+    border-radius: 1rem;
+    padding: 0.438rem 0.8rem;
+}
+.quranSettingRadioBox{
+    display: flex;
+    align-items: center;
+    padding: 0.4rem;
+    cursor: pointer;
+}
+.textInput{
+    font-size:larger;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+}

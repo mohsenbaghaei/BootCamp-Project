@@ -7,7 +7,7 @@ body{
     user-select: none;
     color: #444444;
     overflow-y: scroll;
-    direction: rtl;
+
 }
 *, *::before, *::after {
     box-sizing: inherit;
@@ -16,9 +16,10 @@ body{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    min-height: 100%;
-    width: 60%;
+    min-height: 100% !important;
+    width: 70%;
     margin:  0 auto;
+    direction: rtl;
 }
 .routerRoot{
     flex: 1 0 auto;

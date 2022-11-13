@@ -13,10 +13,10 @@ const Header : React.FC <HeaderName>= ({headerName , headerSubName}) => {
         navigate(-1)
     }
     return (
-        <div className='mainHeader'>
-            <div className='fixedHeader'>
-                <div className='mainHeaderInn'>
-                    <div className='mainHeaderPattern'>
+        <div className='mainHeader '>
+            <div className='fixedHeader '>
+                <div className='mainHeaderInn '>
+                    <div className='mainHeaderPattern'></div>
                     <div className='mainHeaderContent'>
                         <MdOutlineArrowForwardIos onClick={Back} className='mainHeaderback'/>
                         <div className='headerFlex'>
@@ -28,7 +28,7 @@ const Header : React.FC <HeaderName>= ({headerName , headerSubName}) => {
                             <IoSettingsOutline className='icons'/>
                         </div>
                     </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

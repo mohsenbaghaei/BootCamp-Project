@@ -1,6 +1,8 @@
 .quranContainer{
     background-color: #82bbca;
     background-image: url(/src/components/images/pattern-body.76e29d6.png);
+    
+
 }
 .quranMain{
     padding-top: 2rem !important;
@@ -11,6 +13,8 @@
     padding-bottom: 4.8em;
     flex: 1 1;
     font-size: 0.875rem;
+
+
 }
 .topIcon{
     width: 100%;
@@ -86,4 +90,5 @@
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+
 }

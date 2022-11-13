@@ -44,13 +44,13 @@ const Quran :React.FC = () => {
         setHolder('جستجو در موارد منتخب');
     }
     Sura.map((sura , index)=> {
-        
         let preId = Page.findIndex((item)=> index+1 === +item[0])
         if(preId !== -1){
             id = preId + 1
         }
         mainSura.push([sura,id]) 
     })
+    mainSura.pop()
     return (
         <div className='quranContainer'>
             <div>
@@ -128,6 +128,7 @@ const Quran :React.FC = () => {
                     </form>
                 </div>
                 <div className='quranHome'>
+                    
                     {sura ? (
                         <>
                             {

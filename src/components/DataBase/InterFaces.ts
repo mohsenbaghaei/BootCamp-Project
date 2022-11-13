@@ -7,3 +7,6 @@ export interface HeaderName {
     headerName: string;
     headerSubName?: string;
 }
+export interface QuranAyehs {
+    ayeh : (string |number)[] ;
+}

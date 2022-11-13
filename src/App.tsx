@@ -4,6 +4,7 @@ import { Route , Routes } from 'react-router-dom'
 import Main from './components/pages/main/Main'
 import Quran from './components/pages/quran/Quran'
 import QuranPage from './components/pages/quranPage/QuranPage';
+import Setting from './components/pages/setting/Setting';
 
 const App : React.FC = () => {
   return (
@@ -11,7 +12,8 @@ const App : React.FC = () => {
       <div className='routerRoot'>
       <Routes>
         {/* <Route path = '/' element={<Main/>} /> */}
-        <Route path = '/' element={<Quran/>} />
+        {/* <Route path = '/' element={<Quran/>} /> */}
+        <Route path = '/' element={<Setting/>} />
         <Route path = '/page/:id' element={<QuranPage/>} />
       </Routes>
       </div>
