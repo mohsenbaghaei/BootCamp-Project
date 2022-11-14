@@ -6,7 +6,7 @@ import { IoSettingsOutline } from 'react-icons/io5'
 import { BiSearchAlt } from 'react-icons/bi'
 import { HeaderName } from '../../DataBase/InterFaces';
 
-const Header : React.FC <HeaderName>= ({headerName , headerSubName}) => {
+const Header : React.FC <HeaderName>= ({headerName , headerSubName , isSetting}) => {
 
     const navigate = useNavigate()
     const Back = () => {
@@ -23,10 +23,15 @@ const Header : React.FC <HeaderName>= ({headerName , headerSubName}) => {
                             <span>{headerName}</span>
                             <span className='mainHeaderSub'>{headerSubName}</span>
                         </div>
-                        <div className='mainHeaderActions'>
-                            <BiSearchAlt className='icons ml2'/>
-                            <IoSettingsOutline className='icons'/>
-                        </div>
+                        {
+                            isSetting ? 
+                            (
+                            <div className='mainHeaderActions'>
+                                <BiSearchAlt className='icons ml2'/>
+                                <IoSettingsOutline className='icons' onClick={()=>navigate('/setting')}/>
+                            </div>
+                            ) : ''
+                        }
                     </div>
                     
                 </div>

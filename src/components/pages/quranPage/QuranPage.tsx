@@ -62,7 +62,7 @@ const QuranPage :React.FC = () => {
     return (
         <div className='quranContainer'>
             <div>
-                <Header headerName={`سوره ${Sura[PageStartSura - 1][4]} - آیه ${pageAyehStart}`} headerSubName={`صفحه ${id}`}/>
+                <Header headerName={`سوره ${Sura[PageStartSura - 1][4]} - آیه ${pageAyehStart}`} headerSubName={`صفحه ${id}`} isSetting={true}/>
             </div>
             <div className='quranMain'>
                 <div className='quranPage_changePage'>

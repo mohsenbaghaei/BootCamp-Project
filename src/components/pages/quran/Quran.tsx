@@ -54,7 +54,7 @@ const Quran :React.FC = () => {
     return (
         <div className='quranContainer'>
             <div>
-            <Header headerName={'قرآن'}/>
+            <Header headerName={'قرآن'} isSetting={true}/>
             </div>
             <div className='quranMain'>
                 <i className='icon topIcon'>

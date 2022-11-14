@@ -6,6 +6,7 @@ export interface suraData {
 export interface HeaderName {
     headerName: string;
     headerSubName?: string;
+    isSetting: boolean;
 }
 export interface QuranAyehs {
     ayeh : (string | number)[] ;

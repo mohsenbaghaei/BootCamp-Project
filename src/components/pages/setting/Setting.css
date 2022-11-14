@@ -39,7 +39,7 @@
     margin: 0;
     padding: 0;
     color: inherit;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 /*  */
 .quranSettingRadioBoxEnable{
@@ -52,4 +52,58 @@
     height: 2.188rem !important;
     max-width: 100%;
     border-radius: 50%;
+}
+.settingFlex{
+    flex-grow: 1 !important;
+    flex-direction: column !important;
+}
+.playPreviewButton{
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: relative !important;
+    color: inherit;
+}
+.playPreviewButtonIcon{
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #A99160;
+}
+.quranSettingTitleText{
+    margin: 0.6rem 0.7rem 0rem;
+    position: relative !important;
+    align-items: center !important;
+    display: flex !important;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.settingSelect{
+    display: flex !important;
+}
+.settingCenter{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.settingMainSample{
+    margin-left: -0.8rem !important;
+    margin-right: -0.8rem !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.settingSample{
+    background: #EFEAD9;
+    border-radius: 0.5rem;
+    margin: 0 0.438rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.settingMainPreview{
+    padding-left: 0.563rem;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+.settingPreview{
+    text-align: justify;
 }
