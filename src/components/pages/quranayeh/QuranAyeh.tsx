@@ -5,8 +5,10 @@ import quranbackdrop from '../../images/quranbackdrop.svg'
 import { Sura , Juz } from '../../DataBase/QuranDate'
 
 const QuranAyeh :React.FC <QuranAyehs>= ({ayeh}) => {
+
     let suraJuz = Juz.findIndex((juz) => +ayeh[3] === juz[0] && juz[1] === ayeh[2])   
     let mainSuraDetail = Sura[+ayeh[3] - 1]
+
     return (
         <>
         {

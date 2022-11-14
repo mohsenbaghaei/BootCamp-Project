@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from '../header/Header';
 import './Setting.css'
+import translatorMakarem from '../../images/translatorMakarem.png'
+import HosseinAnsarian from '../../images/HosseinAnsarian.png'
 
 const Setting : React.FC= () => {
     return (
@@ -43,11 +45,17 @@ const Setting : React.FC= () => {
                             <input
                             type='radio'
                             value={''} />
+                            <img src={translatorMakarem} alt='translator-makarem' className='settingImage' />
+                            <p className='textInput'>
+                            مکارم شیرازی
+                            </p>
                         </label>
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
                             value={''} />
+                            <img src={HosseinAnsarian} alt='HosseinAnsarian' className='settingImage' />
+                            <p className='textInput'>حسین انصاریان</p>
                         </label>
                     </div>
                 </div>

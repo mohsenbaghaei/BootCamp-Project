@@ -8,5 +8,5 @@ export interface HeaderName {
     headerSubName?: string;
 }
 export interface QuranAyehs {
-    ayeh : (string |number)[] ;
+    ayeh : (string | number)[] ;
 }

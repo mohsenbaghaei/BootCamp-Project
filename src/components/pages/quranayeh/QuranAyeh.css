@@ -5,6 +5,9 @@
     padding: 0.938rem;
     text-align: inherit;
 }
+.quranMainAyehPlay {
+    background-color: rgba(183, 126, 27, 0.21);
+}
 .quranAyeh{
     padding-left: 0.563rem;
     flex-grow: 1;

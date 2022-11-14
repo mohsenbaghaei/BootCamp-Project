@@ -9,7 +9,7 @@ import  QuranAyeh from '../quranayeh/QuranAyeh'
   
 const QuranPage :React.FC = () => {
 
-    const mainData = []
+    const mainData : ( string | number)[][] = []
     const navigate = useNavigate()
     const {id} = useParams() as any
     
@@ -38,6 +38,20 @@ const QuranPage :React.FC = () => {
           pageStart++
         }
       }
+
+      const SoundPlay = (index : number) => {
+        let ayehNumber = `${mainData[index][2]}`
+        let suraNumber = `${mainData[index][3]}`
+        let padAyeh = ayehNumber.padStart(3 , '0')
+        let padSura = suraNumber.padStart(3 , '0')
+        let quranSoundUrl = `http://www.everyayah.com/data/Abdullah_Basfar_192kbps/${padSura}${padAyeh}.mp3`
+        let audio = new Audio(quranSoundUrl)
+        audio.play()
+        if(index !== mainData.length -1){
+            audio.addEventListener('ended', () => SoundPlay(index + 1));
+        }
+    }
+    
     const nextAyeh = () => {
         navigate(`/page/${+id + 1}`)
     }
@@ -108,7 +122,10 @@ const QuranPage :React.FC = () => {
 
                     <div>
                         {
-                            mainData.map((ayeh,index) => <QuranAyeh ayeh={ayeh}  key={index}/>)
+                            mainData.map((ayeh,index) =>
+                            <div key={index}  onClick={() =>SoundPlay(index)}>
+                                <QuranAyeh ayeh={ayeh}/>
+                            </div>)
                         }
                     </div>
                 </div>

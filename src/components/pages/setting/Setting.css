@@ -39,4 +39,17 @@
     margin: 0;
     padding: 0;
     color: inherit;
+    margin-right: 10px;
+}
+/*  */
+.quranSettingRadioBoxEnable{
+    background-color: #EFEAD9;
+    border-radius: 0.5rem;
+}
+/*  */
+.settingImage{
+    width: 2.188rem !important;
+    height: 2.188rem !important;
+    max-width: 100%;
+    border-radius: 50%;
 }
