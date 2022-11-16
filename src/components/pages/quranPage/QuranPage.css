@@ -3,7 +3,7 @@
     background-image: url(/src/components/images/pattern-body.76e29d6.png);
 }
 .quranMain{
-    padding-top: 2rem !important;
+    padding-top: 0.1rem !important;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
     background: url(/src/components/images/nasim-rezvan-bg-pattern.18658f7.png);
@@ -103,3 +103,4 @@
     margin: auto;
     display: table;
 }
+

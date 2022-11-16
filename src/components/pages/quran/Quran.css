@@ -1,8 +1,6 @@
 .quranContainer{
     background-color: #82bbca;
     background-image: url(/src/components/images/pattern-body.76e29d6.png);
-    
-
 }
 .quranMain{
     padding-top: 2rem !important;
@@ -13,8 +11,6 @@
     padding-bottom: 4.8em;
     flex: 1 1;
     font-size: 0.875rem;
-
-
 }
 .topIcon{
     width: 100%;
@@ -74,6 +70,7 @@
     margin: 0 1rem;
     padding: 0.2rem 3rem;
     color: #B6B0A5;
+    outline: none;
 }
 .multiSwitchInput::placeholder{
     direction: rtl;

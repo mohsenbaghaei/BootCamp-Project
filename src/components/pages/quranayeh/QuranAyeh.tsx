@@ -6,9 +6,22 @@ import { Sura , Juz } from '../../DataBase/QuranDate'
 
 const QuranAyeh :React.FC <QuranAyehs>= ({ayeh}) => {
 
+    const localShowAyeh = localStorage?.getItem('ShowAyeh')
+    const localQariPlayer = localStorage?.getItem('QariPlayer')
+    const localAyehFont = localStorage?.getItem('AyehFont')
+    const localAyehThickness = localStorage?.getItem('AyehThickness')
+    const localAyehBigness = localStorage?.getItem('AyehBigness')
+    const localTranslateThickness = localStorage?.getItem('TranslateThickness')
+    const localTranslateBigness = localStorage?.getItem('TranslateBigness')
+
+    // const test=localStorage.getItem("erfan");
+    // console.log(test);
+
+    console.log("render quran ayeh")
+
     let suraJuz = Juz.findIndex((juz) => +ayeh[3] === juz[0] && juz[1] === ayeh[2])   
     let mainSuraDetail = Sura[+ayeh[3] - 1]
-
+    
     return (
         <>
         {
@@ -40,8 +53,15 @@ const QuranAyeh :React.FC <QuranAyehs>= ({ayeh}) => {
         }
         <div className='quranMainAyeh'>
             <div className='quranAyeh'>
-                <div>{ayeh[0]}</div>
-                <div>{ayeh[1]}</div>
+                {localShowAyeh === 'true' ? (
+                    <>
+                    <div>{ayeh[0]}</div>
+                    <div>{ayeh[1]}</div>
+                    </>
+                ) : (
+                    <div>{ayeh[0]}</div>
+                ) }
+
             </div>
             <div className='ayehSide'>
                 <div className='mainAyehNumber quranCenter'>

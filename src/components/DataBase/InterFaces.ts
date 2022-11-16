@@ -1,6 +1,8 @@
 export interface suraData {
-    sura: (string | number)[]
-    index : number
+    sura?: (string | number)[]
+    index : number;
+    juz ?: number[];
+    page ? : number;
 }
 
 export interface HeaderName {

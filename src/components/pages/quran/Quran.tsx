@@ -1,61 +1,93 @@
-import React , { useState } from 'react';
+import React , { useState , useEffect } from 'react';
 import './Quran.css'
 import { Link } from 'react-router-dom';
 import Header from '../header/Header'
 import QuranSura from '../quranSura/QuranSura';
-import {Sura , Page} from '../../DataBase/QuranDate'
+import {Sura , Page , Juz} from '../../DataBase/QuranDate'
 
+interface MainSuraTypes{
+
+}
 const Quran :React.FC = () => {
-    const [sura , setSura] = useState<boolean>(true)
-    const [juz , setJuz] = useState<boolean>(false)
-    const [page , setPage] = useState<boolean>(false)
-    const [favorite , setFavorite] = useState<boolean>(false)
-    const [holder , setHolder] = useState<string>('نام سوره را تایپ کنید...')
-    let mainSura:any = []
+    const [currentPage , setCurrentPage] = useState(1)
+    const [itemValue , setItemValue] = useState('')
+    // const [sura , setSura] = useState('')
+    // const [juz , setJuz] = useState('')
+    // const [page , setPage] = useState('')
+    // const [favorite , setFavorite] = useState('')
+    const [holder , setHolder] = useState('')
+
+
+    //setup for local storage
+    localStorage.setItem("erfan","jazab");
+    
+
+    //0 =>
+    //1 =>
+    //2 =>
+
+    let mainSura:[(string | number)[] , number][] = []
+    let mainJuz : [(string | number) , number , number][] = []
     let id = 0
 
-    
-    const changeSura = () => {
-        setSura(true) ;
-        setJuz(false) ;
-        setPage(false) ;
-        setFavorite(false)
-        setHolder('نام سوره را تایپ کنید...');
-    }
-    const changeJuz = () => {
-        setSura(false) ;
-        setJuz(true) ;
-        setPage(false) ;
-        setFavorite(false)
-        setHolder('شماره جزء را تایپ کنید...');
-    }
-    const changePage = () => {
-        setSura(false) ;
-        setJuz(false) ;
-        setPage(true) ;
-        setFavorite(false)
-        setHolder('شماره صفحه را تایپ کنید...');
-    }
-    const changeFavorite = () => {
-        setSura(false) ;
-        setJuz(false) ;
-        setPage(false) ;
-        setFavorite(true)
-        setHolder('جستجو در موارد منتخب');
-    }
+    useEffect(() => {
+        if(currentPage === 1){
+            setHolder('نام سوره را تایپ کنید...');
+            setItemValue('')
+        }else if(currentPage === 2){
+            setHolder('شماره جزء را تایپ کنید...');
+            setItemValue('')
+        }else if(currentPage === 3){
+            setHolder('شماره صفحه را تایپ کنید...'); 
+            setItemValue('')
+        }else if(currentPage === 4){
+            setHolder('جستجو در موارد منتخب');
+            setItemValue('')
+        }
+    } , [currentPage])
+    useEffect(() => {
+        if(currentPage === 1){
+        }else if(currentPage === 2){
+        }else if(currentPage === 3 && itemValue){
+            if( +itemValue === 0 ){
+                setItemValue('1')
+            }else if (+itemValue > 604){
+                setItemValue('604')
+            }
+        }else if(currentPage === 4){
+        }
+    } , [itemValue])
+
     Sura.map((sura , index)=> {
         let preId = Page.findIndex((item)=> index+1 === +item[0])
         if(preId !== -1){
-            id = preId + 1
+             id = preId + 1
         }
-        mainSura.push([sura,id]) 
+        return mainSura.push([sura,id]) 
     })
     mainSura.pop()
+
+    Juz.map((juz)=> {
+        let preId = Page.findIndex((item)=> item[0] === +juz[0] && (item[1] === +juz[1] || item[1]+1 === +juz[1] || item[1] === +juz[1]+1))
+        if(preId !== -1){
+            id = preId + 1
+        }
+        if(id === 482 && +juz[0] === 46){
+            id = 502
+        }
+        let juzSura = Sura[juz[0]-1] 
+        if(juzSura[1] !== 1){
+           return mainJuz.push([juzSura[4],id,juz[1]])
+        }
+        return 0;
+    })
     return (
         <div className='quranContainer'>
+
             <div>
             <Header headerName={'قرآن'} isSetting={true}/>
             </div>
+
             <div className='quranMain'>
                 <i className='icon topIcon'>
                    <svg fill="none" viewBox="0 0 414 140" className="svg">
@@ -92,44 +124,43 @@ const Quran :React.FC = () => {
                    </svg>
                 </i>
                 <div className='quranCenter'>
-                    <form className='quranSwitcher'>
-                        
-                            <div className='multiSwitch'>
-                                <button
-                                 type='button'
-                                  onClick={changeSura}
-                                  className={sura ? 'multiSwitchButton multiSwitchButton--active' : 'multiSwitchButton'}>
-                                    سوره
-                                </button>
-                                <button
-                                 type='button' 
-                                 onClick={changeJuz} 
-                                 className={juz ? 'multiSwitchButton multiSwitchButton--active' : 'multiSwitchButton'}>
-                                     جزء 
-                                </button>
-                                <button
-                                 type='button'
-                                  onClick={changePage}
-                                   className={page ? 'multiSwitchButton multiSwitchButton--active' : 'multiSwitchButton'}>
-                                    صفحه
-                                </button>
-                                <button
-                                 type='button'
-                                  onClick={changeFavorite}
-                                   className={favorite ? 'multiSwitchButton multiSwitchButton--active' : 'multiSwitchButton'}>
-                                    منتخب  
-                                </button>
-                            </div>
-                            <input
-                            type='text'
-                            placeholder={holder}
-                            className='multiSwitchInput' />
-                        
+                    <form className='quranSwitcher'>                        
+                        <div className='multiSwitch'>
+                            <button
+                             type='button'
+                             onClick={() => setCurrentPage(1)}
+                             className={currentPage === 1 ? 'multiSwitchButton multiSwitchButton--active' : 'multiSwitchButton'}>
+                             سوره
+                            </button>
+                            <button
+                             type='button' 
+                             onClick={() => setCurrentPage(2)} 
+                             className={currentPage === 2 ? 'multiSwitchButton multiSwitchButton--active' : 'multiSwitchButton'}>
+                             جزء 
+                            </button>
+                            <button
+                             type='button'
+                              onClick={() => setCurrentPage(3)}
+                               className={currentPage === 3 ? 'multiSwitchButton multiSwitchButton--active' : 'multiSwitchButton'}>
+                                صفحه
+                            </button>
+                            <button
+                             type='button'
+                              onClick={() => setCurrentPage(4)}
+                              className={currentPage === 4 ? 'multiSwitchButton multiSwitchButton--active' : 'multiSwitchButton'}>
+                                منتخب  
+                            </button>
+                        </div>
+                        <input
+                         type='text'
+                         placeholder={holder}
+                         value={itemValue}
+                         onChange={(event) => setItemValue(event.target.value)}
+                         className='multiSwitchInput' />                        
                     </form>
                 </div>
-                <div className='quranHome'>
-                    
-                    {sura ? (
+                <div className='quranHome'>                   
+                    {currentPage === 1 ? (
                         <>
                             {
                             mainSura.map((sura:any , index:number) =>
@@ -140,8 +171,28 @@ const Quran :React.FC = () => {
                             </div>)
                         }
                         </>
-                    ) : ('')}
-                    
+                    ) : ('')}  
+                    {currentPage === 2 ? (
+                        <>
+                            {
+                                                            
+                            mainJuz.map((item:any , index:number) =>
+                            <div key={index}>
+                                <Link to={`/page/${item[1]}`} className='Link'>
+                                    <QuranSura juz={item} index={index}/>
+                                </Link>
+                            </div>)
+                        
+                            }
+                        </>
+                    ) : ''}   
+                    {currentPage  === 3 && +itemValue !== 0 && +itemValue <= 604 ? (
+                        <>
+                            <Link to={`/page/${+itemValue}`} className='Link'>
+                                <QuranSura page={+itemValue } index={+itemValue -1}/>
+                            </Link>
+                        </>
+                    ) : ''}               
                 </div>
             </div>
         </div>

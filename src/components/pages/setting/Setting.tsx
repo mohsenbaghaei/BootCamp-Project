@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState } from 'react';
 import Header from '../header/Header';
 import './Setting.css'
 import translatorMakarem from '../../images/translatorMakarem.png'
@@ -6,11 +6,72 @@ import HosseinAnsarian from '../../images/HosseinAnsarian.png'
 import reciterParhizgar from '../../images/reciterParhizgar.png'
 import reciterAbdulbasit from '../../images/reciterAbdulbasit.jpg'
 import reciterAlghamadi from '../../images/reciterAlghamadi.jpg'
-import reciterMotaz from '../../images/reciterMotaz.png'
 import reciterMinshawy from '../../images/reciterMinshawy.png'
 import reciterHusary from '../../images/reciterHusary.png'
 
 const Setting : React.FC= () => {
+    // Parhizgar_48kbps
+    // Ghamadi_40kbps
+    // Husary_64kbps
+    // Menshawi_16kbps
+    // Abdul_Basit_Murattal_64kbps
+
+
+    // translations/Makarem_Kabiri_16Kbps
+    // translations/Fooladvand_Hedayatfar_40Kbps
+    const [localShowAyeh , setLocalShowAyeh] = useState(localStorage.getItem('ShowAyeh')) 
+    const [localTranslate , setLocalTranslate] = useState(localStorage.getItem('Translate'))
+    const [localPlayAyeh , setLocalPlayAyeh] = useState(localStorage.getItem('PlayAyeh'))
+    const [localAyehRepeat , setLocalAyehRepeat] = useState(localStorage.getItem('AyehRepeat'))
+    const [localQariPlayer , setLocalQariPlayer] = useState(localStorage.getItem('QariPlayer'))
+    const [localAyehFont , setLocalAyehFont] = useState(localStorage.getItem('AyehFont'))
+    const [localAyehThickness , setLocalAyehThickness] = useState(localStorage.getItem('AyehThickness'))
+    const [localAyehBigness , setLocalAyehBigness] = useState(localStorage.getItem('AyehBigness'))
+    const [localTranslateThickness , setLocalTranslateThickness] = useState(localStorage.getItem('TranslateThickness'))
+    const [localTranslateBigness , setLocalTranslateBigness] = useState(localStorage.getItem('TranslateBigness'))
+
+    console.log(localStorage.getItem('ShowAyeh'))
+
+    const showAyeh = (showAyeh : string) => {
+        localStorage.setItem('ShowAyeh' , showAyeh)
+        setLocalShowAyeh(showAyeh) 
+    }
+    const translate = (translate : string) => {
+        localStorage.setItem('Translate' , translate)
+        setLocalTranslate(translate) 
+    }
+    const playAyeh = (playAyeh : string) => {
+        localStorage.setItem('PlayAyeh' , playAyeh)
+        setLocalPlayAyeh(playAyeh) 
+    }
+    const ayehRepeat = (ayehRepeat : string) => {
+        localStorage.setItem('AyehRepeat' , ayehRepeat)
+        setLocalAyehRepeat(ayehRepeat) 
+    }
+    const qariPlayer = (qariPlayer : string) => {
+        localStorage.setItem('QariPlayer' , qariPlayer)
+        setLocalQariPlayer(qariPlayer) 
+    }
+    const ayehFont = (ayehFont : string) => {
+        localStorage.setItem('AyehFont' , ayehFont)
+        setLocalAyehFont(ayehFont) 
+    }
+    const ayehThickness = (ayehThickness : string) => {
+        localStorage.setItem('AyehThickness' , ayehThickness)
+        setLocalAyehThickness(ayehThickness) 
+    }
+    const ayehBigness = (ayehBigness : string) => {
+        localStorage.setItem('AyehBigness' , ayehBigness)
+        setLocalAyehBigness(ayehBigness) 
+    }
+    const TranslateThickness = (TranslateThickness : string) => {
+        localStorage.setItem('localTranslateThickness' , TranslateThickness)
+        setLocalTranslateThickness(TranslateThickness) 
+    }
+    const translateBigness = (translateBigness : string) => {
+        localStorage.setItem('TranslateBigness' , translateBigness)
+        setLocalTranslateBigness(translateBigness) 
+    }
     return (
         <div className='quranContainer'>
             <div>
@@ -21,12 +82,14 @@ const Setting : React.FC= () => {
                     <h2 className='quranSettingTitle'>
                     نحوه نمایش 
                     </h2>
-                    <div className='quranSettingCard'>
-                        <label className='quranSettingRadioBox'>
+                    <div className='quranSettingCard' >
+                        <label className='quranSettingRadioBox' >
                             <input
                             type='radio'
-                            name='fullAyeh'
-                            value={''} />
+                            name='ShowAyeh'
+                            value='true'                          
+                            checked={localShowAyeh === 'true'}
+                            onChange={() => showAyeh('true')} />
                             <p className='textInput'>
                             نمایش آیه و ترجمه با هم 
                             </p>
@@ -34,8 +97,10 @@ const Setting : React.FC= () => {
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
-                            name='fullAyeh'
-                            value={''} />
+                            name='ShowAyeh'
+                            value='false'                            
+                            checked={localShowAyeh === 'false'}
+                            onChange={() => showAyeh('false')} />
                             <p className='textInput'>
                             فقط نمایش آیه 
                             </p>
@@ -50,20 +115,70 @@ const Setting : React.FC= () => {
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
-                            name='translator'
-                            value={''} />
+                            name='Translator'
+                            value='makarem'
+                            checked={localTranslate === 'makarem'}
+                            onChange={() => translate('makarem')} />
                             <img src={translatorMakarem} alt='translator-makarem' className='settingImage' />
+                            <div className='settingFlex'>
                             <p className='textInput'>
-                            مکارم شیرازی
+                                مکارم شیرازی
+                            </p>
+                            </div>
+                        </label>
+                        <label className='quranSettingRadioBox'>
+                        <input
+                            type='radio'
+                            name='Translator'
+                            value='ansarian'
+                            checked={localTranslate === 'ansarian'}
+                            onChange={() => translate('ansarian')} />
+                            <img src={HosseinAnsarian} alt='HosseinAnsarian' className='settingImage' />
+                            <div className='settingFlex'>
+                            <p className='textInput'>
+                                حسین انصاریان
+                            </p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div className='quranSettingBox'>
+                    <h2 className='quranSettingTitle'>
+                    نحوۀ پخش آیات 
+                    </h2>
+                    <div className='quranSettingCard'>
+                        <label className='quranSettingRadioBox'>
+                            <input
+                            type='radio'
+                            name='PlayAyeh'
+                            value='ayehTranslate'
+                            checked={localPlayAyeh === 'ayehTranslate'}
+                            onChange={() => playAyeh('ayehTranslate')} />
+                            <p className='textInput'>
+                            پخش آیه و ترجمه باهم 
                             </p>
                         </label>
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
-                            name='translator'
-                            value={''} />
-                            <img src={HosseinAnsarian} alt='HosseinAnsarian' className='settingImage' />
-                            <p className='textInput'>حسین انصاریان</p>
+                            name='PlayAyeh'
+                            value='ayehOnly'
+                            checked={localPlayAyeh === 'ayehOnly'}
+                            onChange={() => playAyeh('ayehOnly')} />
+                            <p className='textInput'>
+                            فقط پخش آیه 
+                            </p>
+                        </label>
+                        <label className='quranSettingRadioBox'>
+                            <input
+                            type='radio'
+                            name='PlayAyeh'
+                            value='translateOnly'
+                            checked={localPlayAyeh === 'translateOnly'}
+                            onChange={() => playAyeh('translateOnly')} />
+                            <p className='textInput'>
+                            فقط پخش ترجمه 
+                            </p>
                         </label>
                     </div>
                 </div>
@@ -75,8 +190,10 @@ const Setting : React.FC= () => {
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
-                            name='soundRepeat'
-                            value={''} />
+                            name='AyehRepeat'
+                            value='noRepeat'
+                            checked={localAyehRepeat === 'noRepeat'}
+                            onChange={() => ayehRepeat('noRepeat')} />
                             <p className='textInput'>
                             غیر فعال 
                             </p>
@@ -84,8 +201,10 @@ const Setting : React.FC= () => {
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
-                            name='soundRepeat'
-                            value={''} />
+                            name='AyehRepeat'
+                            value='ayehRepeat'
+                            checked={localAyehRepeat === 'ayehRepeat'}
+                            onChange={() => ayehRepeat('ayehRepeat')} />
                             <p className='textInput'>
                             تکرار آیه 
                             </p>
@@ -93,8 +212,10 @@ const Setting : React.FC= () => {
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
-                            name='soundRepeat'
-                            value={''} />
+                            name='AyehRepeat'
+                            value='pageRepeat'
+                            checked={localAyehRepeat === 'pageRepeat'}
+                            onChange={() => ayehRepeat('pageRepeat')} />
                             <p className='textInput'>
                             تکرار صفحه 
                             </p>
@@ -109,8 +230,10 @@ const Setting : React.FC= () => {
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
-                            name='reciter'
-                            value={''} />
+                            name='QariPlayer'
+                            value='Parhizgar_48kbps'
+                            checked={localQariPlayer === 'Parhizgar_48kbps'}
+                            onChange={() => qariPlayer('Parhizgar_48kbps')} />
                             <img src={reciterParhizgar} alt='reciterParhizgar' className='settingImage'/>
                             <div className='settingFlex'>
                                 <p className='textInput'>
@@ -129,8 +252,10 @@ const Setting : React.FC= () => {
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
-                            name='reciter'
-                            value={''} />
+                            name='QariPlayer'
+                            value='Ghamadi_40kbps'
+                            checked={localQariPlayer === 'Ghamadi_40kbps'}
+                            onChange={() => qariPlayer('Ghamadi_40kbps')} />
                             <img src={reciterAlghamadi} alt='reciterAlghamadi' className='settingImage'/>
                             <div className='settingFlex'>
                                 <p className='textInput'>
@@ -149,8 +274,10 @@ const Setting : React.FC= () => {
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
-                            name='reciter'
-                            value={''} />
+                            name='QariPlayer'
+                            value='Husary_64kbps'
+                            checked={localQariPlayer === 'Husary_64kbps'}
+                            onChange={() => qariPlayer('Husary_64kbps')} />
                             <img src={reciterHusary} alt='reciterHusary' className='settingImage'/>
                             <div className='settingFlex'>
                                 <p className='textInput'>
@@ -169,8 +296,10 @@ const Setting : React.FC= () => {
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
-                            name='reciter'
-                            value={''} />
+                            name='QariPlayer'
+                            value='Menshawi_16kbps'
+                            checked={localQariPlayer === 'Menshawi_16kbps'}
+                            onChange={() => qariPlayer('Menshawi_16kbps')} />
                             <img src={reciterMinshawy} alt='reciterMinshawy' className='settingImage'/>
                             <div className='settingFlex'>
                                 <p className='textInput'>
@@ -189,28 +318,10 @@ const Setting : React.FC= () => {
                         <label className='quranSettingRadioBox'>
                             <input
                             type='radio'
-                            name='reciter'
-                            value={''} />
-                            <img src={reciterMotaz} alt='reciterMotaz' className='settingImage'/>
-                            <div className='settingFlex'>
-                                <p className='textInput'>
-                                استاد معتز آقایی
-                                </p>
-                            </div>
-                            <button className='playPreviewButton'>
-                                <i className='icon playPreviewButtonIcon'>
-                                <svg viewBox="0 0 25 22" className="svg">
-                                    <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18.05 14.55a4.98 4.98 0 000-7.05m2.8 9.85a9.054 9.054 0 000-12.75M15.5 21L8 15.5H3.5a2 2 0 01-2-2v-5a2 2 0 012-2H8L15.5 1v20z">
-                                    </path>
-                                </svg>
-                                </i>
-                            </button>
-                        </label>
-                        <label className='quranSettingRadioBox'>
-                            <input
-                            type='radio'
-                            name='reciter'
-                            value={''} />
+                            name='QariPlayer'
+                            value='Abdul_Basit_Murattal_64kbps'
+                            checked={localQariPlayer === 'Abdul_Basit_Murattal_64kbps'}
+                            onChange={() => qariPlayer('Abdul_Basit_Murattal_64kbps')} />
                             <img src={reciterAbdulbasit} alt='reciterAbdulbasit' className='settingImage'/>
                             <div className='settingFlex'>
                                 <p className='textInput'>
@@ -240,8 +351,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='font'
-                                value={''} />
+                                name='AyehFont'
+                                value='fontVazeh'
+                                checked={localAyehFont === 'fontVazeh'}
+                                onChange={() => ayehFont('fontVazeh')} />
                                 <p className='textInput'>
                                 واضح 
                                 </p>
@@ -249,8 +362,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='font'
-                                value={''} />
+                                name='AyehFont'
+                                value='fontVazeh2'
+                                checked={localAyehFont === 'fontVazeh2'}
+                                onChange={() => ayehFont('fontVazeh2')} />
                                 <p className='textInput'>
                                 واضح 2 
                                 </p>
@@ -258,8 +373,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='font'
-                                value={''} />
+                                name='AyehFont'
+                                value='fontMuhammad'
+                                checked={localAyehFont === 'fontMuhammad'}
+                                onChange={() => ayehFont('fontMuhammad')} />
                                 <p className='textInput'>
                                 محمد(ص) 
                                 </p>
@@ -267,8 +384,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='font'
-                                value={''} />
+                                name='AyehFont'
+                                value='fontUthmani'
+                                checked={localAyehFont === 'fontUthmani'}
+                                onChange={() => ayehFont('fontUthmani')} />
                                 <p className='textInput'>
                                 عثمان‌طه 
                                 </p>
@@ -281,8 +400,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='ayehThickness'
-                                value={''} />
+                                name='AyehThickness'
+                                value='fontAyehWeightThin'
+                                checked={localAyehThickness === 'fontAyehWeightThin'}
+                                onChange={() => ayehThickness('fontAyehWeightThin')} />
                                 <p className='textInput'>
                                     نازک 
                                 </p>
@@ -290,8 +411,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='ayehThickness'
-                                value={''} />
+                                name='AyehThickness'
+                                value='fontAyehWeightNormal'
+                                checked={localAyehThickness === 'fontAyehWeightNormal'}
+                                onChange={() => ayehThickness('fontAyehWeightNormal')} />
                                 <p className='textInput'>
                                     معمولی 
                                 </p>
@@ -299,8 +422,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='ayehThickness'
-                                value={''} />
+                                name='AyehThickness'
+                                value='fontAyehWeightThick'
+                                checked={localAyehThickness === 'fontAyehWeightThick'}
+                                onChange={() => ayehThickness('fontAyehWeightThick')} />
                                 <p className='textInput'>
                                     ضخیم 
                                 </p>
@@ -310,8 +435,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='ayehBigness'
-                                value={''} />
+                                name='AyehBigness'
+                                value='fontAyehSizeVS'
+                                checked={localAyehBigness === 'fontAyehSizeVS'}
+                                onChange={() => ayehBigness('fontAyehSizeVS')} />
                                 <p className='textInput'>
                                     خیلی‌کوچک 
                                 </p>
@@ -319,8 +446,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='ayehBigness'
-                                value={''} />
+                                name='AyehBigness'
+                                value='fontAyehSizeS'
+                                checked={localAyehBigness === 'fontAyehSizeS'}
+                                onChange={() => ayehBigness('fontAyehSizeS')} />
                                 <p className='textInput'>
                                     کوچک 
                                 </p>
@@ -328,8 +457,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='ayehBigness'
-                                value={''} />
+                                name='AyehBigness'
+                                value='fontAyehSizeN'
+                                checked={localAyehBigness === 'fontAyehSizeN'}
+                                onChange={() => ayehBigness('fontAyehSizeN')} />
                                 <p className='textInput'>
                                     متوسط 
                                 </p>
@@ -337,8 +468,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='ayehBigness'
-                                value={''} />
+                                name='AyehBigness'
+                                value='fontAyehSizeB'
+                                checked={localAyehBigness === 'fontAyehSizeB'}
+                                onChange={() => ayehBigness('fontAyehSizeB')} />
                                 <p className='textInput'>
                                     بزرگ 
                                 </p>
@@ -346,8 +479,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='ayehBigness'
-                                value={''} />
+                                name='AyehBigness'
+                                value='fontAyehSizeVB'
+                                checked={localAyehBigness === 'fontAyehSizeVB'}
+                                onChange={() => ayehBigness('fontAyehSizeVB')} />
                                 <p className='textInput'>
                                     خیلی‌بزرگ 
                                 </p>
@@ -360,8 +495,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='translateThickness'
-                                value={''} />
+                                name='TranslateThickness'
+                                value='fontTranslateWeightThin'
+                                checked={localTranslateThickness === 'fontTranslateWeightThin'}
+                                onChange={() => TranslateThickness('fontTranslateWeightThin')} />
                                 <p className='textInput'>
                                     نازک 
                                 </p>
@@ -369,8 +506,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='translateThickness'
-                                value={''} />
+                                name='TranslateThickness'
+                                value='fontTranslateWeightThick'
+                                checked={localTranslateThickness === 'fontTranslateWeightThick'}
+                                onChange={() => TranslateThickness('fontTranslateWeightThick')} />
                                 <p className='textInput'>
                                     ضخیم 
                                 </p>
@@ -380,8 +519,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='translateBigness'
-                                value={''} />
+                                name='TranslateBigness'
+                                value='fontTranslateSizeVS'
+                                checked={localTranslateBigness === 'fontTranslateSizeVS'}
+                                onChange={() => translateBigness('fontTranslateSizeVS')} />
                                 <p className='textInput'>
                                     خیلی‌کوچک 
                                 </p>
@@ -389,8 +530,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='translateBigness'
-                                value={''} />
+                                name='TranslateBigness'
+                                value='fontTranslateSizeS'
+                                checked={localTranslateBigness === 'fontTranslateSizeS'}
+                                onChange={() => translateBigness('fontTranslateSizeS')} />
                                 <p className='textInput'>
                                     کوچک 
                                 </p>
@@ -398,8 +541,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='translateBigness'
-                                value={''} />
+                                name='TranslateBigness'
+                                value='fontTranslateSizeN'
+                                checked={localTranslateBigness === 'fontTranslateSizeN'}
+                                onChange={() => translateBigness('fontTranslateSizeN')} />
                                 <p className='textInput'>
                                     متوسط 
                                 </p>
@@ -407,8 +552,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='translateBigness'
-                                value={''} />
+                                name='TranslateBigness'
+                                value='fontTranslateSizeB'
+                                checked={localTranslateBigness === 'fontTranslateSizeB'}
+                                onChange={() => translateBigness('fontTranslateSizeB')} />
                                 <p className='textInput'>
                                     بزرگ 
                                 </p>
@@ -416,8 +563,10 @@ const Setting : React.FC= () => {
                             <label className='quranSettingRadioBox'>
                                 <input
                                 type='radio'
-                                name='translateBigness'
-                                value={''} />
+                                name='TranslateBigness'
+                                value='fontTranslateSizeVB'
+                                checked={localTranslateBigness === 'fontTranslateSizeVB'}
+                                onChange={() => translateBigness('fontTranslateSizeVB')} />
                                 <p className='textInput'>
                                     خیلی‌بزرگ 
                                 </p>
@@ -426,12 +575,28 @@ const Setting : React.FC= () => {
                         <div className='settingMainSample'>
                             <div className='settingSample'>
                                 <div className='settingMainPreview'>
+                                    {localShowAyeh === 'true' ? (
+                                        <>
                                     <div className='settingPreview '>
-                                        ذٰلِكَ الۡكِتاٰبُ لاٰ رَیۡبَۛ فٖیهِۛ هُدًى لِلۡمُتَّقٖینَ
+                                   صِراٰطَ الَّذٖینَ اَنۡعَمۡتَ عَلَیۡهِمۡ غَیۡرِ الۡمَغۡضُوبِ عَلَیۡهِمۡ وَلَا الضّآٰلّٖینَ
                                     </div>
                                     <div className='settingPreview '>
-
+                                    {localTranslate === 'makarem' ? (
+                                    <>
+                                     راه کسانی که آنان را مشمول نعمت خود ساختی؛ نه کسانی که بر آنان غضب کرده‌ای؛ و نه گمراهان.
+                                    </>
+                                    ) : (
+                                    <>
+                                    راه کسانی [چون پیامبران، صدّیقان، شهیدان و صالحان که به خاطر لیاقتشان] به آنان نعمتِ [ایمان، عمل شایسته و اخلاق حسنه] عطا کردی، هم آنان که نه مورد خشم تواند و نه گمراه اند.
+                                    </>
+                                    )}
                                     </div>
+                                    </>
+                                    ) : (
+                                        <div className='settingPreview '>
+                                        صِراٰطَ الَّذٖینَ اَنۡعَمۡتَ عَلَیۡهِمۡ غَیۡرِ الۡمَغۡضُوبِ عَلَیۡهِمۡ وَلَا الضّآٰلّٖینَ
+                                         </div>
+                                    )} 
                                 </div>
                                 <div className='settingMainAyehNumber'>
                                     <i className='settingAyehNumber'>

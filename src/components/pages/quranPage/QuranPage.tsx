@@ -1,17 +1,53 @@
-import React from 'react';
-import './QuranPage.css'
-import Header from '../header/Header';
+import React , {useEffect} from 'react';
 import { useParams , useNavigate } from 'react-router-dom';
+
+import './QuranPage.css'
+
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
+import  QuranAyeh from '../quranayeh/QuranAyeh'
+
 import { Page , Sura } from '../../DataBase/QuranDate'
 import {Ayeh} from '../../DataBase/QuranAyeh'
+
 import { TranslateMakarem } from '../../DataBase/QuranAyehTranslateMakarem'
-import  QuranAyeh from '../quranayeh/QuranAyeh'
+import { TranslateAnsarian } from '../../DataBase/QuranTranslateAnsarian'
+
   
 const QuranPage :React.FC = () => {
+
+    useEffect(() =>{
+        const initialLocal = localStorage?.getItem("InitialLocal")
+        if(!initialLocal){
+            localStorage.setItem('InitialLocal' , 'true')
+
+            localStorage.setItem('ShowAyeh' , 'true')
+            localStorage.setItem('Translate' , 'makarem')
+            localStorage.setItem('PlayAyeh' , 'ayehTranslate')
+            localStorage.setItem('AyehRepeat' , 'noRepeat')
+            localStorage.setItem('QariPlayer' , 'Parhizgar_48kbps')
+            localStorage.setItem('AyehFont' , 'fontVazeh2')
+            localStorage.setItem('AyehThickness' , 'fontAyehWeightNormal')
+            localStorage.setItem('AyehBigness' , 'fontAyehSizeN')
+            localStorage.setItem('TranslateThickness' , 'fontTranslateWeightThick')
+            localStorage.setItem('fontTranslateSizeN' , 'fontTranslateSizeN')
+        }
+    },[])
+
+    const localTranslate = localStorage.getItem('Translate')
+    const localPlayAyeh = localStorage.getItem('PlayAyeh')
+    const localAyehRepeat = localStorage.getItem('AyehRepeat')
 
     const mainData : ( string | number)[][] = []
     const navigate = useNavigate()
     const {id} = useParams() as any
+    let translate = TranslateMakarem
+    let translateSound = 'translations/Makarem_Kabiri_16Kbps'
+
+    if(localTranslate === 'ansarian'){
+        translate = TranslateAnsarian
+        translateSound = 'translations/Fooladvand_Hedayatfar_40Kbps'
+    }
     
     const PageStartSura = Page[+id - 1][0]
     const PageEndSura = Page[+id][0]
@@ -19,10 +55,12 @@ const QuranPage :React.FC = () => {
     const pageAyehEnd = Page[+id][1]
 
     for(let i = PageStartSura ; i <= PageEndSura ; i++){
+
         let currentSuraInfo =  Sura[i - 1]
         let pageStart  =  currentSuraInfo[0] as number
         let pageLength = currentSuraInfo[1] as number
         let pageEnd = 0
+
         if(PageEndSura - i === 0){
           pageEnd = pageAyehEnd -1
         }else{
@@ -34,23 +72,51 @@ const QuranPage :React.FC = () => {
           j = pageAyehStart
         }
         for(j ; j <= pageEnd ; j++){
-          mainData.push([Ayeh[+pageStart],TranslateMakarem[+pageStart],j,i])
+          mainData.push([Ayeh[+pageStart],translate[+pageStart],j,i])
           pageStart++
         }
       }
-
       const SoundPlay = (index : number) => {
+
         let ayehNumber = `${mainData[index][2]}`
         let suraNumber = `${mainData[index][3]}`
         let padAyeh = ayehNumber.padStart(3 , '0')
         let padSura = suraNumber.padStart(3 , '0')
-        let quranSoundUrl = `http://www.everyayah.com/data/Abdullah_Basfar_192kbps/${padSura}${padAyeh}.mp3`
-        let audio = new Audio(quranSoundUrl)
-        audio.play()
-        if(index !== mainData.length -1){
-            audio.addEventListener('ended', () => SoundPlay(index + 1));
-        }
-    }
+
+        let quranSoundAyeh = `http://www.everyayah.com/data/Abdullah_Basfar_192kbps/${padSura}${padAyeh}.mp3`
+
+        let quranSoundTranslate = `http://www.everyayah.com/data/Abdullah_Basfar_192kbps/${padSura}${padAyeh}.mp3`
+
+        let ayehAudio = new Audio(quranSoundAyeh)
+        let translateAudio = new Audio(quranSoundTranslate)
+
+      }
+    //     if (localPlayAyeh === 'ayehOnly') {
+    //         ayehAudio.play()     
+    //         if(localAyehRepeat === 'pageRepeat'){
+    //             if(index === mainData.length -1){
+    //                 index = 0
+    //             }                
+    //         }   
+    //         if(index !== mainData.length -1){
+    //             ayehAudio.addEventListener('ended', () => SoundPlay(index + 1));
+    //         }
+    //         ayehAudio.addEventListener('ended', () => SoundPlay(index));
+    //     }else if (localPlayAyeh === 'translateOnly'){
+    //         translateAudio.play()            
+    //         if(index !== mainData.length -1){
+    //             translateAudio.addEventListener('ended', () => SoundPlay(index + 1));
+    //         }
+    //     }else{
+    //         ayehAudio.play()
+    //         if(index !== mainData.length -1){
+    //             ayehAudio.addEventListener('ended', () => translateAudio.play());
+    //             translateAudio.addEventListener('ended', () => {
+    //                 SoundPlay(index + 1)
+    //                  console.log("next")} );
+    //         }
+    //     }
+    // }
     
     const nextAyeh = () => {
         navigate(`/page/${+id + 1}`)
@@ -129,6 +195,9 @@ const QuranPage :React.FC = () => {
                         }
                     </div>
                 </div>
+            </div>
+            <div>
+                <Footer />
             </div>
         </div>
     );
