@@ -2,7 +2,6 @@ import React from 'react';
 import './QuranSura.css'
 import { suraData } from '../../DataBase/InterFaces';
 import {Sura , Page } from '../../DataBase/QuranDate'
-import { AiOutlineStar } from 'react-icons/ai'
 
 
 const QuranSura : React.FC <suraData> = ({sura , juz , index ,page}) => {
@@ -80,11 +79,6 @@ const QuranSura : React.FC <suraData> = ({sura , juz , index ,page}) => {
             )}
 
             <div className='shrink'>
-                <button className='itemButton'>
-                    <i className='icon'>
-                    <AiOutlineStar />
-                    </i>
-                </button>
                 <button className='itemButton itemButtonPlay' onClick={() => console.log('salam')}>
                     <i className='icon'>
                     <svg viewBox="0 0 20 23" className="svg">

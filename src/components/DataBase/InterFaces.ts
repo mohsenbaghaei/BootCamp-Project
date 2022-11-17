@@ -3,6 +3,7 @@ export interface suraData {
     index : number;
     juz ?: number[];
     page ? : number;
+
 }
 
 export interface HeaderName {

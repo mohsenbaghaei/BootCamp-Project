@@ -13,9 +13,71 @@
     flex-grow: 1;
     flex-basis: 0;
 }
-/*  */
-
-/*  */
+.ayehView{
+    text-align: justify;
+    white-space: normal;
+    margin-bottom: 0.6rem;
+}
+.fontAyehWeightThin{
+    font-weight: normal;
+}
+.fontAyehWeightThick{
+    font-weight:bolder;
+}
+.fontAyehSizeVS{
+    font-size: 1.125rem;
+}
+.fontAyehSizeS{
+    font-size: 1.25rem;
+}
+.fontAyehSizeN{
+    font-size: 1.375rem;
+}
+.fontAyehSizeB{
+    font-size: 1.5rem;
+}
+.fontAyehSizeVB{
+    font-size: 1.815rem;
+}
+.fontVazeh{
+    font-family: Vazeh, Muhammad, IranSans;
+    line-height: 2;
+}
+.fontVazeh2{
+    font-family: Vazeh, Muhammad, IranSans;
+    font-feature-settings: "jalt", "dlig", "kern" off;
+    line-height: 2;
+}
+.fontMuhammad{
+    font-family: Muhammad, IranSans;
+    font-feature-settings: "dlig" off;
+    line-height: 2;
+}
+.fontUthmani{
+    font-family: Uthmani, IranSans;
+    line-height: 2;
+}
+.fontTranslateWeightThin{
+    font-weight: normal;
+}
+.fontTranslateWeightThick{
+    font-weight: bolder;
+}
+.fontTranslateSizeVS{
+    font-size: 0.69rem;
+}
+.fontTranslateSizeS{
+    font-size: 0.815rem;
+}
+.fontTranslateSizeN{
+    font-size: 0.935rem;
+}
+.fontTranslateSizeB{
+    font-size: 1.125rem;
+}
+.fontTranslateSizeVB{
+    font-size: 1.25rem;
+}
 .ayehSide{
     width: 2.625rem !important;
     cursor: pointer !important;

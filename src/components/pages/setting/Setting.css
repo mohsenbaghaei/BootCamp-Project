@@ -1,205 +1,201 @@
-.quranSettingBox{
-
-    accent-color: #A99160;
-    transition: height 0.3s;
-    overflow: hidden;
+.quranSettingBox {
+  accent-color: #a99160;
+  transition: height 0.3s;
+  overflow: hidden;
 }
-.quranSettingtop{
-    padding-top: 0 !important;
+.quranSettingtop {
+  padding-top: 0 !important;
 }
-.quranSettingTitle{
-    font-size: 1.4rem;
-    font-weight: 500;
-    margin: 0;
-    padding-right: 0.7rem;
-    margin-bottom: 0.2rem;
-    display: block;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+.quranSettingTitle {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0;
+  padding-right: 0.7rem;
+  margin-bottom: 0.2rem;
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
-.quranSettingCard{
-    background: #FFFEFD;
-    border: 1px solid #DCDCDC;
+.quranSettingCard {
+  background: #fffefd;
+  border: 1px solid #dcdcdc;
 }
-.quranSettingCard{
-    box-sizing: border-box;
-    border-radius: 1rem;
-    padding: 0.438rem 0.8rem;
+.quranSettingCard {
+  box-sizing: border-box;
+  border-radius: 1rem;
+  padding: 0.438rem 0.8rem;
 }
-.quranSettingRadioBox{
-    display: flex;
-    align-items: center;
-    padding: 0.4rem;
-    cursor: pointer;
+.quranSettingRadioBox {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem;
+  cursor: pointer;
 }
-.textInput{
-    font-size:larger;
-    margin: 0;
-    padding: 0;
-    color: inherit;
-    margin-right: 5px;
-}
-/*  */
-.quranSettingRadioBoxEnable{
-    background-color: #EFEAD9;
-    border-radius: 0.5rem;
+.textInput {
+  font-size: larger;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  margin-right: 5px;
 }
 /*  */
-.settingImage{
-    width: 2.188rem !important;
-    height: 2.188rem !important;
-    max-width: 100%;
-    border-radius: 50%;
-}
-.settingFlex{
-    flex-grow: 1 !important;
-    flex-direction: column !important;
-}
-.playPreviewButton{
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    position: relative !important;
-    color: inherit;
-}
-.playPreviewButtonIcon{
-    width: 1.5rem;
-    height: 1.5rem;
-    color: #A99160;
-}
-.quranSettingTitleText{
-    margin: 0.6rem 0.7rem 0rem;
-    position: relative !important;
-    align-items: center !important;
-    display: flex !important;
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-.settingSelect{
-    display: flex !important;
-}
-.settingCenter{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-.settingMainSample{
-    margin-left: -0.8rem !important;
-    margin-right: -0.8rem !important;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-}
-.settingSample{
-    background: #EFEAD9;
-    border-radius: 0.5rem;
-    margin: 0 0.438rem;
-    padding: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-}
-.settingMainPreview{
-    padding-left: 0.563rem;
-    flex-grow: 1;
-    flex-basis: 0;
-}
-.settingPreview{
-    text-align: justify;
-    white-space: normal;
-    margin-bottom: 0.6rem;
-}
-.settingMainAyehNumber{
-    width: 2.625rem;
-    height: 2.625rem;
-    position: relative;
-    flex-shrink: 0;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-.settingAyehNumber{
-    position: absolute !important;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: inherit;
-    height: inherit;
-    justify-content: center;
-    align-items: center;
-    display: block;
-}
-.settingSvg{
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
-}
-.settingAyehNum{
-    position: relative;
+.quranSettingRadioBoxEnable {
+  background-color: #efead9;
+  border-radius: 0.5rem;
 }
 /*  */
-.fontAyehWeightThin{
-    font-weight: normal;
+.settingImage {
+  width: 2.188rem !important;
+  height: 2.188rem !important;
+  max-width: 100%;
+  border-radius: 50%;
 }
-.fontAyehWeightNormal{
-    font-weight: 500;
+.settingFlex {
+  flex-grow: 1 !important;
+  flex-direction: column !important;
 }
-.fontAyehWeightThick{
-    font-weight: 600;
+.playPreviewButton {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  position: relative !important;
+  color: inherit;
 }
-.fontAyehSizeVS{
-    font-size: 1.125rem;
+.playPreviewButtonIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #a99160;
 }
-.fontAyehSizeS{
-    font-size: 1.25rem;
+.quranSettingTitleText {
+  margin: 0.6rem 0.7rem 0rem;
+  position: relative !important;
+  align-items: center !important;
+  display: flex !important;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
-.fontAyehSizeN{
-    font-size: 1.375rem;
+.settingSelect {
+  display: flex !important;
 }
-.fontAyehSizeB{
-    font-size: 1.5rem;
+.settingCenter {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
-.fontAyehSizeVB{
-    font-size: 1.815rem;
+.settingMainSample {
+  margin-left: -0.8rem !important;
+  margin-right: -0.8rem !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
-.fontVazeh{
-    font-family: Vazeh, Muhammad, IranSans;
-    line-height: 2;
+.settingSample {
+  background: #efead9;
+  border-radius: 0.5rem;
+  margin: 0 0.438rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
 }
-.fontVazeh2{
-    font-family: Vazeh, Muhammad, IranSans;
-    font-feature-settings: "jalt", "dlig", "kern" off;
-    line-height: 2;
+.settingMainPreview {
+  padding-left: 0.563rem;
+  flex-grow: 1;
+  flex-basis: 0;
 }
-.fontMuhammad{
-    font-family: Muhammad, IranSans;
-    font-feature-settings: "dlig" off;
-    line-height: 2;
+.settingPreview {
+  text-align: justify;
+  white-space: normal;
+  margin-bottom: 0.6rem;
 }
-.fontUthmani{
-    font-family: Uthmani, IranSans;
-    line-height: 2;
+.settingMainAyehNumber {
+  width: 2.625rem;
+  height: 2.625rem;
+  position: relative;
+  flex-shrink: 0;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
-.fontTranslateWeightThin{
-    font-weight: normal;
+.settingAyehNumber {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  justify-content: center;
+  align-items: center;
+  display: block;
 }
-.fontTranslateWeightThick{
-    font-weight: 500;
+.settingSvg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
 }
-.fontTranslateSizeVS{
-    font-size: 0.69rem;
+.settingAyehNum {
+  position: relative;
 }
-.fontTranslateSizeS{
-    font-size: 0.815rem;
+/*  */
+.fontAyehWeightThin {
+  font-weight: normal;
 }
-.fontTranslateSizeN{
-    font-size: 0.935rem;
+.fontAyehWeightThick {
+  font-weight: bolder;
 }
-.fontTranslateSizeB{
-    font-size: 1.125rem;
+.fontAyehSizeVS {
+  font-size: 1.125rem;
 }
-.fontTranslateSizeVB{
-    font-size: 1.25rem;
+.fontAyehSizeS {
+  font-size: 1.25rem;
+}
+.fontAyehSizeN {
+  font-size: 1.375rem;
+}
+.fontAyehSizeB {
+  font-size: 1.5rem;
+}
+.fontAyehSizeVB {
+  font-size: 1.815rem;
+}
+.fontVazeh {
+  font-family: Vazeh, Muhammad, IranSans;
+  line-height: 2;
+}
+.fontVazeh2 {
+  font-family: Vazeh, Muhammad, IranSans;
+  font-feature-settings: "jalt", "dlig", "kern" off;
+  line-height: 2;
+}
+.fontMuhammad {
+  font-family: Muhammad, IranSans;
+  font-feature-settings: "dlig" off;
+  line-height: 2;
+}
+.fontUthmani {
+  font-family: Uthmani, IranSans;
+  line-height: 2;
+}
+.fontTranslateWeightThin {
+  font-weight: normal;
+}
+.fontTranslateWeightThick {
+  font-weight: bolder;
+}
+.fontTranslateSizeVS {
+  font-size: 0.69rem;
+}
+.fontTranslateSizeS {
+  font-size: 0.815rem;
+}
+.fontTranslateSizeN {
+  font-size: 0.935rem;
+}
+.fontTranslateSizeB {
+  font-size: 1.125rem;
+}
+.fontTranslateSizeVB {
+  font-size: 1.25rem;
 }
 /*  */
