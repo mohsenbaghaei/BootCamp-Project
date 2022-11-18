@@ -1,5 +1,7 @@
-import React, { useState , useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {Localtranslate,LocalPlayAyeh,LocalQariPlayer,LocalAyehRepeat} from "../../../redux/setting/settingSlice";
 
 import "./QuranPage.css";
 
@@ -31,16 +33,15 @@ const QuranPage: React.FC = () => {
       localStorage.setItem("fontTranslateSizeN", "fontTranslateSizeN");
     }
   }, []);
-
-  const localTranslate = localStorage.getItem("Translate");
-  const localPlayAyeh = localStorage.getItem("PlayAyeh");
-  const localAyehRepeat = localStorage.getItem("AyehRepeat");
-  const localQariPlayer = localStorage.getItem("QariPlayer");
+  const localTranslate = useSelector(Localtranslate);
+  const localPlayAyeh = useSelector(LocalPlayAyeh);
+  const localAyehRepeat = useSelector(LocalAyehRepeat);
+  const localQariPlayer = useSelector(LocalQariPlayer);
   let quranSoundAyeh = "";
   let quranSoundTranslate = "";
   let ayehAudio = new Audio(quranSoundAyeh);
   let translateAudio = new Audio(quranSoundTranslate);
-  const [play , setPlay] = useState(false)
+
   const mainData: (string | number)[][] = [];
   const navigate = useNavigate();
   const { id } = useParams() as any;
@@ -104,7 +105,7 @@ const QuranPage: React.FC = () => {
       if (index !== mainData.length - 1) {
         ayehAudio.addEventListener("ended", () => SoundPlay(index));
       }
-    } else if (localPlayAyeh === "translateOnly") {
+    } else if (localPlayAyeh === "translateOnly" && localTranslate === 'makarem') {
       translateAudio.play();
       if (localAyehRepeat === "noRepeat") {
         index++;
@@ -123,13 +124,15 @@ const QuranPage: React.FC = () => {
         index++;
       } else if (localAyehRepeat === "pageRepeat") {
         index++;
-        if (index === mainData.length - 1) {
+        if (index === mainData.length) {
           index = 1;
         }
       }
-      if (index !== mainData.length - 1) {
+      if (index !== mainData.length - 1 && localTranslate === 'makarem') {
         ayehAudio.addEventListener("ended", () => translateAudio.play());
         translateAudio.addEventListener("ended", () => SoundPlay(index));
+      }else if(index !== mainData.length ){
+        ayehAudio.addEventListener("ended", () => SoundPlay(index));
       }
     }
   };

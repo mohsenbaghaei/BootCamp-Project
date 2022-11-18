@@ -1,16 +1,24 @@
-import React from "react";
 import "./QuranAyeh.css";
 import { QuranAyehs } from "../../DataBase/InterFaces";
 import quranbackdrop from "../../images/quranbackdrop.svg";
 import { Sura, Juz } from "../../DataBase/QuranDate";
+import { useSelector } from "react-redux";
+import {
+  LocalayehFont,
+  LocalayehThickness,
+  LocalayehBigness,
+  LocaltranslateThickness,
+  LocaltranslateBigness,
+  LocalShowAyeh
+} from "../../../redux/setting/settingSlice";
 
 const QuranAyeh: React.FC<QuranAyehs> = ({ ayeh }) => {
-  const localShowAyeh = localStorage.getItem("ShowAyeh");
-  const localAyehFont = localStorage.getItem("AyehFont");
-  const localAyehThickness = localStorage.getItem("AyehThickness");
-  const localAyehBigness = localStorage.getItem("AyehBigness");
-  const localTranslateThickness = localStorage.getItem("TranslateThickness");
-  const localTranslateBigness = localStorage.getItem("TranslateBigness");
+  const localShowAyeh = useSelector(LocalShowAyeh);
+  const localAyehFont = useSelector(LocalayehFont);
+  const localAyehThickness = useSelector(LocalayehThickness);
+  const localAyehBigness = useSelector(LocalayehBigness);
+  const localTranslateThickness = useSelector(LocaltranslateThickness);
+  const localTranslateBigness = useSelector(LocaltranslateBigness);
 
   let suraJuz = Juz.findIndex(
     (juz) => +ayeh[3] === juz[0] && juz[1] === ayeh[2]

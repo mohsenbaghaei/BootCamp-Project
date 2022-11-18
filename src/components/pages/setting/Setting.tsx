@@ -36,7 +36,7 @@ const Setting: React.FC = () => {
           <AyehRepeat />
         </div>
         <div className="quranSettingBox">
-          <QariPlayer />
+          <QariPlayer showButton={true}/>
         </div>
         <div className="quranSettingBox">
           <ShowText />

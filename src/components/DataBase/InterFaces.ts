@@ -14,3 +14,6 @@ export interface HeaderName {
 export interface QuranAyehs {
     ayeh : (string | number)[] ;
 }
+export interface qariButton {
+    showButton? : boolean ;
+}

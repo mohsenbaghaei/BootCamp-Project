@@ -8,8 +8,9 @@ import reciterAbdulbasit from "../../images/reciterAbdulbasit.jpg";
 import reciterAlghamadi from "../../images/reciterAlghamadi.jpg";
 import reciterMinshawy from "../../images/reciterMinshawy.png";
 import reciterHusary from "../../images/reciterHusary.png";
+import { qariButton } from "../../DataBase/InterFaces";
 
-const QariPlayer = () => {
+const QariPlayer: React.FC<qariButton> = ({ showButton }) => {
   const dispatch = useDispatch();
   const localQariPlayer = useSelector(LocalQariPlayer);
   let quranSoundAyeh = "";
@@ -40,23 +41,27 @@ const QariPlayer = () => {
           <div className="settingFlex">
             <p className="textInput">استاد پرهیزگار</p>
           </div>
-          <button
-            className="playPreviewButton"
-            onClick={() => playSound("Parhizgar_48kbps")}
-          >
-            <i className="icon playPreviewButtonIcon">
-              <svg viewBox="0 0 25 22" className="svg">
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M18.05 14.55a4.98 4.98 0 000-7.05m2.8 9.85a9.054 9.054 0 000-12.75M15.5 21L8 15.5H3.5a2 2 0 01-2-2v-5a2 2 0 012-2H8L15.5 1v20z"
-                ></path>
-              </svg>
-            </i>
-          </button>
+          {showButton ? (
+            <button
+              className="playPreviewButton"
+              onClick={() => playSound("Parhizgar_48kbps")}
+            >
+              <i className="icon playPreviewButtonIcon">
+                <svg viewBox="0 0 25 22" className="svg">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M18.05 14.55a4.98 4.98 0 000-7.05m2.8 9.85a9.054 9.054 0 000-12.75M15.5 21L8 15.5H3.5a2 2 0 01-2-2v-5a2 2 0 012-2H8L15.5 1v20z"
+                  ></path>
+                </svg>
+              </i>
+            </button>
+          ) : (
+            ""
+          )}
         </label>
         <label className="quranSettingRadioBox">
           <input
@@ -74,23 +79,27 @@ const QariPlayer = () => {
           <div className="settingFlex">
             <p className="textInput">استاد سعد الغامدی</p>
           </div>
-          <button
-            className="playPreviewButton"
-            onClick={() => playSound("Ghamadi_40kbps")}
-          >
-            <i className="icon playPreviewButtonIcon">
-              <svg viewBox="0 0 25 22" className="svg">
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M18.05 14.55a4.98 4.98 0 000-7.05m2.8 9.85a9.054 9.054 0 000-12.75M15.5 21L8 15.5H3.5a2 2 0 01-2-2v-5a2 2 0 012-2H8L15.5 1v20z"
-                ></path>
-              </svg>
-            </i>
-          </button>
+          {showButton ? (
+            <button
+              className="playPreviewButton"
+              onClick={() => playSound("Ghamadi_40kbps")}
+            >
+              <i className="icon playPreviewButtonIcon">
+                <svg viewBox="0 0 25 22" className="svg">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M18.05 14.55a4.98 4.98 0 000-7.05m2.8 9.85a9.054 9.054 0 000-12.75M15.5 21L8 15.5H3.5a2 2 0 01-2-2v-5a2 2 0 012-2H8L15.5 1v20z"
+                  ></path>
+                </svg>
+              </i>
+            </button>
+          ) : (
+            ""
+          )}
         </label>
         <label className="quranSettingRadioBox">
           <input
@@ -108,23 +117,27 @@ const QariPlayer = () => {
           <div className="settingFlex">
             <p className="textInput">استاد خلیل الحصری</p>
           </div>
-          <button
-            className="playPreviewButton"
-            onClick={() => playSound("Husary_64kbps")}
-          >
-            <i className="icon playPreviewButtonIcon">
-              <svg viewBox="0 0 25 22" className="svg">
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M18.05 14.55a4.98 4.98 0 000-7.05m2.8 9.85a9.054 9.054 0 000-12.75M15.5 21L8 15.5H3.5a2 2 0 01-2-2v-5a2 2 0 012-2H8L15.5 1v20z"
-                ></path>
-              </svg>
-            </i>
-          </button>
+          {showButton ? (
+            <button
+              className="playPreviewButton"
+              onClick={() => playSound("Husary_64kbps")}
+            >
+              <i className="icon playPreviewButtonIcon">
+                <svg viewBox="0 0 25 22" className="svg">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M18.05 14.55a4.98 4.98 0 000-7.05m2.8 9.85a9.054 9.054 0 000-12.75M15.5 21L8 15.5H3.5a2 2 0 01-2-2v-5a2 2 0 012-2H8L15.5 1v20z"
+                  ></path>
+                </svg>
+              </i>
+            </button>
+          ) : (
+            ""
+          )}
         </label>
         <label className="quranSettingRadioBox">
           <input
@@ -142,23 +155,27 @@ const QariPlayer = () => {
           <div className="settingFlex">
             <p className="textInput">استاد منشاوی</p>
           </div>
-          <button
-            className="playPreviewButton"
-            onClick={() => playSound("Menshawi_16kbps")}
-          >
-            <i className="icon playPreviewButtonIcon">
-              <svg viewBox="0 0 25 22" className="svg">
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M18.05 14.55a4.98 4.98 0 000-7.05m2.8 9.85a9.054 9.054 0 000-12.75M15.5 21L8 15.5H3.5a2 2 0 01-2-2v-5a2 2 0 012-2H8L15.5 1v20z"
-                ></path>
-              </svg>
-            </i>
-          </button>
+          {showButton ? (
+            <button
+              className="playPreviewButton"
+              onClick={() => playSound("Menshawi_16kbps")}
+            >
+              <i className="icon playPreviewButtonIcon">
+                <svg viewBox="0 0 25 22" className="svg">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M18.05 14.55a4.98 4.98 0 000-7.05m2.8 9.85a9.054 9.054 0 000-12.75M15.5 21L8 15.5H3.5a2 2 0 01-2-2v-5a2 2 0 012-2H8L15.5 1v20z"
+                  ></path>
+                </svg>
+              </i>
+            </button>
+          ) : (
+            ""
+          )}
         </label>
         <label className="quranSettingRadioBox">
           <input
@@ -176,23 +193,27 @@ const QariPlayer = () => {
           <div className="settingFlex">
             <p className="textInput">استاد عبد الباسط</p>
           </div>
-          <button
-            className="playPreviewButton"
-            onClick={() => playSound("Abdul_Basit_Murattal_64kbps")}
-          >
-            <i className="icon playPreviewButtonIcon">
-              <svg viewBox="0 0 25 22" className="svg">
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M18.05 14.55a4.98 4.98 0 000-7.05m2.8 9.85a9.054 9.054 0 000-12.75M15.5 21L8 15.5H3.5a2 2 0 01-2-2v-5a2 2 0 012-2H8L15.5 1v20z"
-                ></path>
-              </svg>
-            </i>
-          </button>
+          {showButton ? (
+            <button
+              className="playPreviewButton"
+              onClick={() => playSound("Abdul_Basit_Murattal_64kbps")}
+            >
+              <i className="icon playPreviewButtonIcon">
+                <svg viewBox="0 0 25 22" className="svg">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M18.05 14.55a4.98 4.98 0 000-7.05m2.8 9.85a9.054 9.054 0 000-12.75M15.5 21L8 15.5H3.5a2 2 0 01-2-2v-5a2 2 0 012-2H8L15.5 1v20z"
+                  ></path>
+                </svg>
+              </i>
+            </button>
+          ) : (
+            ""
+          )}
         </label>
       </div>
     </div>
