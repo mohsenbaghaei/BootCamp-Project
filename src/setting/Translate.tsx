@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import translatorMakarem from "../../images/translatorMakarem.png";
-import HosseinAnsarian from "../../images/HosseinAnsarian.png";
-import { translate, Localtranslate } from "../../../redux/setting/settingSlice";
+import translatorMakarem from "../images/translatorMakarem.png";
+import HosseinAnsarian from "../images/HosseinAnsarian.png";
+import { translate, Localtranslate } from "../redux/setting/settingSlice";
 
 const Translate = () => {
   const dispatch = useDispatch();

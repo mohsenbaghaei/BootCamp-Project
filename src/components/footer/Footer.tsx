@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./Footer.css";
-import AyehRepeat from "../setting/AyehRepeat";
-import QariPlayer from "../setting/QariPlayer";
-import Translate from "../setting/Translate";
-import ShowText from "../setting/ShowText";
-import {LocalQariPlayer,Localtranslate} from "../../../redux/setting/settingSlice";
+import AyehRepeat from "../../setting/AyehRepeat";
+import QariPlayer from "../../setting/QariPlayer";
+import Translate from "../../setting/Translate";
+import ShowText from "../../setting/ShowText";
+import {
+  LocalQariPlayer,
+  Localtranslate,
+} from "../../redux/setting/settingSlice";
+import { IsPlaying, Playing } from "../../redux/audio/audioSlice";
 
 import reciterParhizgar from "../../images/reciterParhizgar.png";
 import reciterAbdulbasit from "../../images/reciterAbdulbasit.jpg";
@@ -16,74 +20,90 @@ import translatorMakarem from "../../images/translatorMakarem.png";
 import HosseinAnsarian from "../../images/HosseinAnsarian.png";
 
 const Footer: React.FC = () => {
+  const dispatch = useDispatch();
   const [repeat, setRepeat] = useState(false);
   const [qari, setQari] = useState(false);
   const [translate, setTranslate] = useState(false);
   const [text, setText] = useState(false);
   const localQariPlayer = useSelector(LocalQariPlayer);
   const localTranslate = useSelector(Localtranslate);
-  let selectedQari = ''
-  let selectTranslate = ''
+  const playing = useSelector(Playing);
+  let selectedQari = "";
+  let selectTranslate = "";
 
   const changeRepeat = () => {
     setRepeat(!repeat);
     setQari(false);
     setTranslate(false);
     setText(false);
-  }
+  };
   const changeQari = () => {
     setRepeat(false);
     setQari(!qari);
     setTranslate(false);
     setText(false);
-  }
+  };
   const changeTranslate = () => {
     setRepeat(false);
     setQari(false);
     setTranslate(!translate);
     setText(false);
-  }
+  };
   const changeText = () => {
     setRepeat(false);
     setQari(false);
     setTranslate(false);
     setText(!text);
+  };
+  const changePlay = () => {
+    if(playing){
+      dispatch(IsPlaying(false))
+    }else{
+      dispatch(IsPlaying(true))
+    }
+  };
+  if (localQariPlayer === "Parhizgar_48kbps") {
+    selectedQari = reciterParhizgar;
+  } else if (localQariPlayer === "Ghamadi_40kbps") {
+    selectedQari = reciterAlghamadi;
+  } else if (localQariPlayer === "Husary_64kbps") {
+    selectedQari = reciterHusary;
+  } else if (localQariPlayer === "Menshawi_16kbps") {
+    selectedQari = reciterMinshawy;
+  } else if (localQariPlayer === "Abdul_Basit_Murattal_64kbps") {
+    selectedQari = reciterAbdulbasit;
   }
-  if(localQariPlayer === 'Parhizgar_48kbps'){
-    selectedQari = reciterParhizgar
-  }else if(localQariPlayer === 'Ghamadi_40kbps'){
-    selectedQari = reciterAlghamadi
-  }else if(localQariPlayer === 'Husary_64kbps'){
-    selectedQari = reciterHusary
-  }else if(localQariPlayer === 'Menshawi_16kbps'){
-    selectedQari = reciterMinshawy
-  }else if(localQariPlayer === 'Abdul_Basit_Murattal_64kbps'){
-    selectedQari = reciterAbdulbasit
-  }
-  if(localTranslate === 'makarem'){
-     selectTranslate = translatorMakarem
-  }else if(localTranslate === 'ansarian'){
-     selectTranslate = HosseinAnsarian
+  if (localTranslate === "makarem") {
+    selectTranslate = translatorMakarem;
+  } else if (localTranslate === "ansarian") {
+    selectTranslate = HosseinAnsarian;
   }
 
   return (
-    <div className={repeat || qari || translate || text ? 'backgroundChanger' : ''}>
+    <div
+      className={repeat || qari || translate || text ? "backgroundChanger" : ""}
+    >
       <div className="quranMainBottomFooter">
-        <div className={repeat || qari || translate || text ? 'footerWithSetting' : ''}>
-        <div className={repeat || qari || translate || text ? 'footerSetting' : ''}>
-          <div className="quranSettingBox">
-            {repeat ? <AyehRepeat /> : ""}
-            {qari ? <QariPlayer showButton={false} /> : ""}
-            {translate ? <Translate /> : ""}
-            {text ? <ShowText /> : ""}
+        <div
+          className={
+            repeat || qari || translate || text ? "footerWithSetting" : ""
+          }
+        >
+          <div
+            className={
+              repeat || qari || translate || text ? "footerSetting" : ""
+            }
+          >
+            <div className="quranSettingBox">
+              {repeat ? <AyehRepeat /> : ""}
+              {qari ? <QariPlayer showButton={false} /> : ""}
+              {translate ? <Translate /> : ""}
+              {text ? <ShowText /> : ""}
+            </div>
           </div>
         </div>
-      </div> 
         <div className="quranBottomMainFooter">
-          <button
-            className="quranButtonFooter"
-            onClick={changeRepeat}
-          >
+          <button className="quranButtonFooter" onClick={changeRepeat}>
             <div className="quranButtonItem">
               <i className="quranButtonIcon">
                 <svg viewBox="0 0 23 24" className="fotterSvg">
@@ -109,35 +129,45 @@ const Footer: React.FC = () => {
           </button>
           <button className="quranButtonFooter" onClick={changeQari}>
             <div className="quranButtonItem">
-              <img src={selectedQari} alt={localQariPlayer} className="settingImage"/>
+              <img
+                src={selectedQari}
+                alt={localQariPlayer}
+                className="settingImage"
+              />
             </div>
           </button>
-          <button className="quranButtonFooter">
+          <button className="quranButtonFooter" onClick={changePlay}>
             <div className="quranButtonFooterPlay">
               <i className="quranButtonPlay">
-                <svg viewBox="0 0 20 23" className="fotterSvg">
-                  <path
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="3"
-                    d="M2.475 21V2l16 9.5-16 9.5z"
-                  ></path>
-                </svg>
-                {/* <svg viewBox="0 0 15 20" className="fotterSvg">
-                            <path fill="currentColor" d="M5.237 0H.951a.476.476 0 00-.476.476v19.048c0 .263.213.476.476.476h4.286a.476.476 0 00.476-.476V.476A.476.476 0 005.237 0zm9.048 0H9.999a.476.476 0 00-.476.476v19.048c0 .263.213.476.476.476h4.286a.476.476 0 00.476-.476V.476A.476.476 0 0014.285 0z">
-                            </path>
-                        </svg> */}
+                {playing ? (
+                  <svg viewBox="0 0 15 20" className="fotterSvg">
+                    <path
+                      fill="currentColor"
+                      d="M5.237 0H.951a.476.476 0 00-.476.476v19.048c0 .263.213.476.476.476h4.286a.476.476 0 00.476-.476V.476A.476.476 0 005.237 0zm9.048 0H9.999a.476.476 0 00-.476.476v19.048c0 .263.213.476.476.476h4.286a.476.476 0 00.476-.476V.476A.476.476 0 0014.285 0z"
+                    ></path>
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 20 23" className="fotterSvg">
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="3"
+                      d="M2.475 21V2l16 9.5-16 9.5z"
+                    ></path>
+                  </svg>
+                )}
               </i>
             </div>
           </button>
-          <button
-            className="quranButtonFooter"
-            onClick={changeTranslate}
-          >
+          <button className="quranButtonFooter" onClick={changeTranslate}>
             <div className="quranButtonItem">
-              <img src={selectTranslate} alt={localTranslate} className="settingImage"/>
+              <img
+                src={selectTranslate}
+                alt={localTranslate}
+                className="settingImage"
+              />
             </div>
           </button>
           <button className="quranButtonFooter" onClick={changeText}>
@@ -161,8 +191,6 @@ const Footer: React.FC = () => {
         </div>
       </div>
     </div>
-
-    
   );
 };
 

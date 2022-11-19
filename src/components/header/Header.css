@@ -8,11 +8,11 @@
     
 }
 .fixedHeader::before {
-    background-image: url(/src/components/images/main-header-before.95754c1.png);
+    background-image: url(/src/images/main-header-before.95754c1.png);
 }
 
 .fixedHeader::after{
-    background-image: url(/src/components/images/main-header2-after.806189e.png);
+    background-image: url(/src/images/main-header2-after.806189e.png);
 }
 .fixedHeader::before , .fixedHeader::after{
     width: 1.75rem;
@@ -24,7 +24,7 @@
     background-repeat: no-repeat;
 }
 .mainHeaderInn{
-    background: url(/src/components/images/download.png) repeat-x;
+    background: url(/src/images/download.png) repeat-x;
     background-size: contain;
     height: 4.5rem;
     padding: 0.75rem 0;
@@ -32,7 +32,7 @@
     position: relative;
 }
 .mainHeaderPattern {
-    background-image: url(/src/components/images/main-header2-pattern.png);
+    background-image: url(/src/images/main-header2-pattern.png);
     width: 100%;
     height:100%;
     right: 0;

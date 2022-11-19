@@ -1,12 +1,12 @@
 .quranContainer{
     background-color: #82bbca;
-    background-image: url(/src/components/images/pattern-body.76e29d6.png);
+    background-image: url(/src/images/pattern-body.76e29d6.png);
 }
 .quranMain{
     padding-top: 0.1rem !important;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
-    background: url(/src/components/images/nasim-rezvan-bg-pattern.18658f7.png);
+    background: url(/src/images/nasim-rezvan-bg-pattern.18658f7.png);
     background-color: #faf9f6;
     padding-bottom: 4.8em;
     flex: 1 1;

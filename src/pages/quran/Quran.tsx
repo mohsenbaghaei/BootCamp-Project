@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Quran.css";
 import { Link } from "react-router-dom";
-import Header from "../header/Header";
+import Header from "../../components/header/Header";
 import QuranSura from "../quranSura/QuranSura";
 import { Sura, Page, Juz } from "../../DataBase/QuranDate";
 

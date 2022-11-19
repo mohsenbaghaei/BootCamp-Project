@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { LocalPlayAyeh, playAyeh } from "../../../redux/setting/settingSlice";
+import { LocalPlayAyeh, playAyeh } from "../redux/setting/settingSlice";
 
 const PlayAyeh = () => {
   const dispatch = useDispatch();

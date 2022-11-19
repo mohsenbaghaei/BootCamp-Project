@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../header/Header";
+import Header from "../components/header/Header";
 import "./Setting.css";
 import ShowAyeh from "./ShowAyeh";
 import AyehRepeat from "./AyehRepeat";
@@ -9,7 +9,7 @@ import ShowText from "./ShowText";
 import Translate from "./Translate";
 import SettingPreview from "./SettingPreview";
 import { useSelector } from "react-redux";
-import { Localtranslate } from "../../../redux/setting/settingSlice";
+import { Localtranslate } from "../redux/setting/settingSlice";
 
 const Setting: React.FC = () => {
   const localtranslate = useSelector(Localtranslate);

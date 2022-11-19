@@ -8,7 +8,7 @@ import {
   LocaltranslateThickness,
   LocaltranslateBigness,
   Localtranslate,
-} from "../../../redux/setting/settingSlice";
+} from "../redux/setting/settingSlice";
 
 const SettingPreview = () => {
   const localShowAyeh = useSelector(LocalShowAyeh);

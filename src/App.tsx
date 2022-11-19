@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css'
 import { Route , Routes } from 'react-router-dom'
-import Main from './components/pages/main/Main'
-import Quran from './components/pages/quran/Quran'
-import QuranPage from './components/pages/quranPage/QuranPage';
-import Setting from './components/pages/setting/Setting';
+import Main from './pages/main/Main'
+import Quran from './pages/quran/Quran'
+import QuranPage from './pages/quranPage/QuranPage';
+import Setting from './setting/Setting';
 
 const App : React.FC = () => {
   return (

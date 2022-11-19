@@ -3,6 +3,7 @@ import { QuranAyehs } from "../../DataBase/InterFaces";
 import quranbackdrop from "../../images/quranbackdrop.svg";
 import { Sura, Juz } from "../../DataBase/QuranDate";
 import { useSelector } from "react-redux";
+
 import {
   LocalayehFont,
   LocalayehThickness,
@@ -10,21 +11,22 @@ import {
   LocaltranslateThickness,
   LocaltranslateBigness,
   LocalShowAyeh
-} from "../../../redux/setting/settingSlice";
+} from "../../redux/setting/settingSlice";
+import { CurrentAyeh } from '../../redux/audio/audioSlice'
 
-const QuranAyeh: React.FC<QuranAyehs> = ({ ayeh }) => {
+const QuranAyeh: React.FC<QuranAyehs> = ({ ayeh , index }) => {
   const localShowAyeh = useSelector(LocalShowAyeh);
   const localAyehFont = useSelector(LocalayehFont);
   const localAyehThickness = useSelector(LocalayehThickness);
   const localAyehBigness = useSelector(LocalayehBigness);
   const localTranslateThickness = useSelector(LocaltranslateThickness);
   const localTranslateBigness = useSelector(LocaltranslateBigness);
+  const currentAyeh = useSelector(CurrentAyeh) 
 
   let suraJuz = Juz.findIndex(
     (juz) => +ayeh[3] === juz[0] && juz[1] === ayeh[2]
   );
   let mainSuraDetail = Sura[+ayeh[3] - 1];
-
   return (
     <>
       {ayeh[2] === 1 ? (
@@ -59,7 +61,7 @@ const QuranAyeh: React.FC<QuranAyehs> = ({ ayeh }) => {
       ) : (
         ""
       )}
-      <div className="quranMainAyeh">
+      <div className={index === currentAyeh ? "quranMainAyeh quranMainAyehPlay" : "quranMainAyeh"}>
         <div className="quranAyeh">
           {localShowAyeh === "true" ? (
             <>
@@ -129,7 +131,7 @@ const QuranAyeh: React.FC<QuranAyehs> = ({ ayeh }) => {
           {suraJuz + 1 === 0 ? (
             ""
           ) : (
-            <div className="mainAyehNumber quranCenter fasele">
+            <div className="mainAyehNumber quranCenter fasele" >
               <i className="ayehNummberIcon icon">
                 <svg fill="none" viewBox="0 0 46 46" className="svg">
                   <path

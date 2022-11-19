@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import {Localtranslate,LocalPlayAyeh,LocalQariPlayer,LocalAyehRepeat} from "../../../redux/setting/settingSlice";
+import { useSelector , useDispatch } from "react-redux";
+import {Localtranslate ,
+  LocalPlayAyeh,
+  LocalQariPlayer,
+  LocalAyehRepeat} from "../../redux/setting/settingSlice";
 
 import "./QuranPage.css";
 
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 import QuranAyeh from "../quranayeh/QuranAyeh";
 
 import { Page, Sura } from "../../DataBase/QuranDate";
@@ -14,6 +17,8 @@ import { Ayeh } from "../../DataBase/QuranAyeh";
 
 import { TranslateMakarem } from "../../DataBase/QuranAyehTranslateMakarem";
 import { TranslateAnsarian } from "../../DataBase/QuranTranslateAnsarian";
+
+import { IsPlaying , playCurrentAyeh , Playing } from "../../redux/audio/audioSlice";
 
 const QuranPage: React.FC = () => {
   useEffect(() => {
@@ -33,14 +38,19 @@ const QuranPage: React.FC = () => {
       localStorage.setItem("fontTranslateSizeN", "fontTranslateSizeN");
     }
   }, []);
+  const dispatch = useDispatch();
   const localTranslate = useSelector(Localtranslate);
   const localPlayAyeh = useSelector(LocalPlayAyeh);
   const localAyehRepeat = useSelector(LocalAyehRepeat);
   const localQariPlayer = useSelector(LocalQariPlayer);
-  let quranSoundAyeh = "";
-  let quranSoundTranslate = "";
-  let ayehAudio = new Audio(quranSoundAyeh);
-  let translateAudio = new Audio(quranSoundTranslate);
+  const playing = useSelector(Playing);
+
+  let QuranSoundAyeh = '';
+
+  let QuranSoundTranslate = '';
+
+  let AyehAudio = new Audio(QuranSoundAyeh);
+  let TranslateAudio = new Audio(QuranSoundTranslate);
 
   const mainData: (string | number)[][] = [];
   const navigate = useNavigate();
@@ -77,65 +87,71 @@ const QuranPage: React.FC = () => {
       pageStart++;
     }
   }
-  const SoundPlay = (index: number) => {
-    ayehAudio.pause();
-    translateAudio.pause();
-    let ayehNumber = `${mainData[index][2]}`;
-    let suraNumber = `${mainData[index][3]}`;
-    let padAyeh = ayehNumber.padStart(3, "0");
-    let padSura = suraNumber.padStart(3, "0");
+  useEffect(()=>{
+    console.log('first')
+  },[])
+  const SoundPlay = (index : number) => {
 
-    quranSoundAyeh = `http://www.everyayah.com/data/${localQariPlayer}/${padSura}${padAyeh}.mp3`;
+    AyehAudio.pause()
+    TranslateAudio.pause()
+    dispatch(IsPlaying(true))
+    const AyehNumber = `${mainData[index][2]}`;
+    const SuraNumber = `${mainData[index][3]}`;
+    const PadAyeh = AyehNumber.padStart(3, "0");
+    const PadSura = SuraNumber.padStart(3, "0");
+    QuranSoundAyeh = `http://www.everyayah.com/data/${localQariPlayer}/${PadSura}${PadAyeh}.mp3`;
+    QuranSoundTranslate = `http://www.everyayah.com/data/translations/Makarem_Kabiri_16Kbps/${PadSura}${PadAyeh}.mp3`;
 
-    quranSoundTranslate = `http://www.everyayah.com/data/translations/Makarem_Kabiri_16Kbps/${padSura}${padAyeh}.mp3`;
-
-    ayehAudio = new Audio(quranSoundAyeh);
-    translateAudio = new Audio(quranSoundTranslate);
-
-    if (localPlayAyeh === "ayehOnly") {
-      ayehAudio.play();
-      if (localAyehRepeat === "noRepeat") {
-        index++;
-      } else if (localAyehRepeat === "pageRepeat") {
-        index++;
-        if (index === mainData.length - 1) {
-          index = 1;
+    AyehAudio = new Audio(QuranSoundAyeh);
+    TranslateAudio = new Audio(QuranSoundTranslate);
+console.log(mainData.length -1 , index ,localAyehRepeat,localPlayAyeh );
+    dispatch(playCurrentAyeh(index))
+    if(localPlayAyeh === 'ayehOnly'){
+      AyehAudio.play()
+      if(localAyehRepeat === 'noRepeat'){
+        index++
+      }else if (localAyehRepeat === 'pageRepeat'){
+        if(index === mainData.length - 1){
+          index = 0
+        }else{
+          index++
         }
       }
-      if (index !== mainData.length - 1) {
-        ayehAudio.addEventListener("ended", () => SoundPlay(index));
+      if (index !== mainData.length){
+      AyehAudio.addEventListener('ended' , () => SoundPlay(index) )
       }
-    } else if (localPlayAyeh === "translateOnly" && localTranslate === 'makarem') {
-      translateAudio.play();
-      if (localAyehRepeat === "noRepeat") {
-        index++;
-      } else if (localAyehRepeat === "pageRepeat") {
-        index++;
-        if (index === mainData.length - 1) {
-          index = 1;
+    }else if (localPlayAyeh === 'translateOnly'){
+      TranslateAudio.play()
+      if(localAyehRepeat === 'noRepeat'){
+        index++
+      }else if (localAyehRepeat === 'pageRepeat'){
+        if(index === mainData.length - 1){
+          index = 0
+        }else{
+          index++
         }
       }
-      if (index !== mainData.length - 1) {
-        translateAudio.addEventListener("ended", () => SoundPlay(index));
+      if (index !== mainData.length){
+        TranslateAudio.addEventListener('ended' , () => SoundPlay(index) )
       }
-    } else {
-      ayehAudio.play();
-      if (localAyehRepeat === "noRepeat") {
-        index++;
-      } else if (localAyehRepeat === "pageRepeat") {
-        index++;
-        if (index === mainData.length) {
-          index = 1;
+    }else{
+      AyehAudio.play()
+      AyehAudio.addEventListener('ended' , () => TranslateAudio.play() )
+      if(localAyehRepeat === 'noRepeat'){
+        index++
+      }else if (localAyehRepeat === 'pageRepeat'){
+        if(index === mainData.length - 1){
+          index = 0
+        }else{
+          index++
         }
       }
-      if (index !== mainData.length - 1 && localTranslate === 'makarem') {
-        ayehAudio.addEventListener("ended", () => translateAudio.play());
-        translateAudio.addEventListener("ended", () => SoundPlay(index));
-      }else if(index !== mainData.length ){
-        ayehAudio.addEventListener("ended", () => SoundPlay(index));
+      if (index !== mainData.length){
+        TranslateAudio.addEventListener('ended' , () => SoundPlay(index) )
       }
     }
-  };
+
+  }
 
   const nextAyeh = () => {
     navigate(`/page/${+id + 1}`);
@@ -143,7 +159,6 @@ const QuranPage: React.FC = () => {
   const previousAyeh = () => {
     navigate(`/page/${+id - 1}`);
   };
-
   return (
     <div className="quranContainer">
       <div>
@@ -260,7 +275,7 @@ const QuranPage: React.FC = () => {
           <div>
             {mainData.map((ayeh, index) => (
               <div key={index} onClick={() => SoundPlay(index)}>
-                <QuranAyeh ayeh={ayeh} />
+                <QuranAyeh ayeh={ayeh} index={index}  />
               </div>
             ))}
           </div>

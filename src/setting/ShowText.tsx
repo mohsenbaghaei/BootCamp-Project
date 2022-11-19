@@ -10,7 +10,7 @@ import {
   LocalayehBigness,
   LocaltranslateThickness,
   LocaltranslateBigness,
-} from "../../../redux/setting/settingSlice";
+} from "../redux/setting/settingSlice";
 
 const ShowText = () => {
   const dispatch = useDispatch();

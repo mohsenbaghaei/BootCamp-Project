@@ -69,27 +69,27 @@ export const settingSlice = createSlice({
       },
   },
 });
-export const Localtranslate = (state: any) => state.setting.localTranslate;
+export const Localtranslate = (state) => state.setting.localTranslate;
 
-export const LocalayehFont = (state: any) => state.setting.localAyehFont;
-export const LocalayehThickness = (state: any) =>
+export const LocalayehFont = (state) => state.setting.localAyehFont;
+export const LocalayehThickness = (state) =>
   state.setting.localAyehThickness;
-export const LocalayehBigness = (state: any) => state.setting.localAyehBigness;
-export const LocaltranslateThickness = (state: any) =>
+export const LocalayehBigness = (state) => state.setting.localAyehBigness;
+export const LocaltranslateThickness = (state) =>
   state.setting.localTranslateThickness;
-export const LocaltranslateBigness = (state: any) =>
+export const LocaltranslateBigness = (state) =>
   state.setting.localTranslateBigness;
 
-export const LocalShowAyeh = (state: any) =>
+export const LocalShowAyeh = (state) =>
 state.setting.localShowAyeh;
 
-export const LocalQariPlayer = (state: any) =>
+export const LocalQariPlayer = (state) =>
 state.setting.localQariPlayer;
 
-export const LocalPlayAyeh = (state: any) =>
+export const LocalPlayAyeh = (state) =>
 state.setting.localPlayAyeh;
 
-export const LocalAyehRepeat = (state: any) =>
+export const LocalAyehRepeat = (state) =>
 state.setting.localAyehRepeat;
 
 export const {

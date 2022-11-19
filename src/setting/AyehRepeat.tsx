@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   LocalAyehRepeat,
   ayehRepeat,
-} from "../../../redux/setting/settingSlice";
+} from "../redux/setting/settingSlice";
 
 const AyehRepeat = () => {
   const dispatch = useDispatch();

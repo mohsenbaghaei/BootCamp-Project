@@ -2,13 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   LocalQariPlayer,
   qariPlayer,
-} from "../../../redux/setting/settingSlice";
-import reciterParhizgar from "../../images/reciterParhizgar.png";
-import reciterAbdulbasit from "../../images/reciterAbdulbasit.jpg";
-import reciterAlghamadi from "../../images/reciterAlghamadi.jpg";
-import reciterMinshawy from "../../images/reciterMinshawy.png";
-import reciterHusary from "../../images/reciterHusary.png";
-import { qariButton } from "../../DataBase/InterFaces";
+} from "../redux/setting/settingSlice";
+import reciterParhizgar from "../images/reciterParhizgar.png";
+import reciterAbdulbasit from "../images/reciterAbdulbasit.jpg";
+import reciterAlghamadi from "../images/reciterAlghamadi.jpg";
+import reciterMinshawy from "../images/reciterMinshawy.png";
+import reciterHusary from "../images/reciterHusary.png";
+import { qariButton } from "../DataBase/InterFaces";
 
 const QariPlayer: React.FC<qariButton> = ({ showButton }) => {
   const dispatch = useDispatch();
