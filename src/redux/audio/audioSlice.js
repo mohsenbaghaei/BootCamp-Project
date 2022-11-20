@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     playing : false,
-    currentAyeh : 0,
+    currentAyeh : -1,
+    
 }
 
 export const audioSlice = createSlice({

@@ -2,10 +2,12 @@ import React from 'react';
 import './QuranSura.css'
 import { suraData } from '../../DataBase/InterFaces';
 import {Sura , Page } from '../../DataBase/QuranDate'
+import { IsPlaying } from "../../redux/audio/audioSlice";
+import { useDispatch } from "react-redux";
 
 
 const QuranSura : React.FC <suraData> = ({sura , juz , index ,page}) => {
-
+    const dispatch = useDispatch();
     const pagesearch = Page[+index ]
     const suraPage = Sura[pagesearch[0] -1] 
     return (
@@ -79,7 +81,7 @@ const QuranSura : React.FC <suraData> = ({sura , juz , index ,page}) => {
             )}
 
             <div className='shrink'>
-                <button className='itemButton itemButtonPlay' onClick={() => console.log('salam')}>
+                <button className='itemButton itemButtonPlay' onClick={() =>dispatch(IsPlaying(true))}>
                     <i className='icon'>
                     <svg viewBox="0 0 20 23" className="svg">
                         <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M2.475 21V2l16 9.5-16 9.5z">

@@ -10,6 +10,7 @@ import {
   Localtranslate,
 } from "../../redux/setting/settingSlice";
 import { IsPlaying, Playing } from "../../redux/audio/audioSlice";
+import { footeritems } from '../../DataBase/InterFaces'
 
 import reciterParhizgar from "../../images/reciterParhizgar.png";
 import reciterAbdulbasit from "../../images/reciterAbdulbasit.jpg";
@@ -19,7 +20,7 @@ import reciterHusary from "../../images/reciterHusary.png";
 import translatorMakarem from "../../images/translatorMakarem.png";
 import HosseinAnsarian from "../../images/HosseinAnsarian.png";
 
-const Footer: React.FC = () => {
+const Footer: React.FC <footeritems> = ({ AyehAudio,TranslateAudio}) => {
   const dispatch = useDispatch();
   const [repeat, setRepeat] = useState(false);
   const [qari, setQari] = useState(false);
@@ -30,7 +31,7 @@ const Footer: React.FC = () => {
   const playing = useSelector(Playing);
   let selectedQari = "";
   let selectTranslate = "";
-
+  
   const changeRepeat = () => {
     setRepeat(!repeat);
     setQari(false);
@@ -58,10 +59,13 @@ const Footer: React.FC = () => {
   const changePlay = () => {
     if(playing){
       dispatch(IsPlaying(false))
+      AyehAudio?.pause()
+      TranslateAudio?.pause()
     }else{
       dispatch(IsPlaying(true))
     }
   };
+
   if (localQariPlayer === "Parhizgar_48kbps") {
     selectedQari = reciterParhizgar;
   } else if (localQariPlayer === "Ghamadi_40kbps") {

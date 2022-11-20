@@ -10,6 +10,8 @@ export interface HeaderName {
     headerName: string;
     headerSubName?: string;
     isSetting: boolean;
+    AyehAudio ? : HTMLAudioElement
+    TranslateAudio ? : HTMLAudioElement
 }
 export interface QuranAyehs {
     ayeh : (string | number)[] ;
@@ -18,3 +20,9 @@ export interface QuranAyehs {
 export interface qariButton {
     showButton? : boolean ;
 }
+export interface footeritems {
+    AyehAudio ? : HTMLAudioElement
+    TranslateAudio ? : HTMLAudioElement
+}
+
+

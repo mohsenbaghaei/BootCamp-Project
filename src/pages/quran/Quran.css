@@ -16,6 +16,7 @@
     width: 100%;
     height: auto;
     margin: -2rem 0 -8%;
+    padding-top: 2rem !important;
 }
 .icon{
     justify-content: center;
@@ -87,5 +88,4 @@
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-
 }

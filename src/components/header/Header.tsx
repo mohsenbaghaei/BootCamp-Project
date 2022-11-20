@@ -5,13 +5,26 @@ import { MdOutlineArrowForwardIos } from 'react-icons/md'
 import { IoSettingsOutline } from 'react-icons/io5'
 import { BiSearchAlt } from 'react-icons/bi'
 import { HeaderName } from '../../DataBase/InterFaces';
+import { useDispatch } from "react-redux";
+import { IsPlaying , playCurrentAyeh } from "../../redux/audio/audioSlice";
 
-const Header : React.FC <HeaderName>= ({headerName , headerSubName , isSetting}) => {
+const Header : React.FC <HeaderName>= ({headerName , headerSubName , isSetting , AyehAudio,TranslateAudio}) => {
 
     const navigate = useNavigate()
     const Back = () => {
+        AyehAudio?.pause()
+        TranslateAudio?.pause()
+        dispatch(IsPlaying(false))
+        dispatch(playCurrentAyeh(-1))
         navigate(-1)
     }
+    const toSetting = () => {
+        AyehAudio?.pause()
+        TranslateAudio?.pause()
+        dispatch(IsPlaying(false))
+        dispatch(playCurrentAyeh(-1))
+    }
+    const dispatch = useDispatch();
     return (
         <div className='mainHeader '>
             <div className='fixedHeader '>
@@ -26,7 +39,7 @@ const Header : React.FC <HeaderName>= ({headerName , headerSubName , isSetting})
                         {
                             isSetting ? 
                             (
-                            <div className='mainHeaderActions'>
+                            <div className='mainHeaderActions' onClick={toSetting}>
                                 <BiSearchAlt className='icons ml2'/>
                                 <IoSettingsOutline className='icons' onClick={()=>navigate('/setting')}/>
                             </div>

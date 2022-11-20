@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
 import QuranSura from "../quranSura/QuranSura";
 import { Sura, Page, Juz } from "../../DataBase/QuranDate";
+import Footer from "../../components/footer/Footer";
 
 const Quran: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,12 +43,15 @@ const Quran: React.FC = () => {
       }
     } else if (currentPage === 4) {
     }
-  }, [itemValue]);
+  }, [currentPage , itemValue]);
 
   Sura.map((sura, index) => {
     let preId = Page.findIndex((item) => index + 1 === +item[0]);
     if (preId !== -1) {
       id = preId + 1;
+    }
+    if(Page[id] !== undefined && Page[+id-1][1] !== 1){
+      id-=1
     }
     return mainSura.push([sura, id]);
   });
@@ -225,6 +229,9 @@ const Quran: React.FC = () => {
           ) : (
             ""
           )}
+        </div>
+        <div>
+          <Footer/>
         </div>
       </div>
     </div>
