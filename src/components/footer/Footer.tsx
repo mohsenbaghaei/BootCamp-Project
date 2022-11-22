@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 import "./Footer.css";
+
 import AyehRepeat from "../../setting/AyehRepeat";
 import QariPlayer from "../../setting/QariPlayer";
 import Translate from "../../setting/Translate";
 import ShowText from "../../setting/ShowText";
+import SideAyeh from "../../pages/quranayeh/SideAyeh";
+
 import {
   LocalQariPlayer,
   Localtranslate,
 } from "../../redux/setting/settingSlice";
+
 import { IsPlaying, Playing } from "../../redux/audio/audioSlice";
-import { footeritems } from '../../DataBase/InterFaces'
+import { footeritems } from "../../DataBase/InterFaces";
+
+import { SideShow , changeSideShow } from '../../redux/sideAyeh/sideAyehSlice'
 
 import reciterParhizgar from "../../images/reciterParhizgar.png";
 import reciterAbdulbasit from "../../images/reciterAbdulbasit.jpg";
@@ -20,7 +27,7 @@ import reciterHusary from "../../images/reciterHusary.png";
 import translatorMakarem from "../../images/translatorMakarem.png";
 import HosseinAnsarian from "../../images/HosseinAnsarian.png";
 
-const Footer: React.FC <footeritems> = ({ AyehAudio,TranslateAudio}) => {
+const Footer: React.FC<footeritems> = ({ AyehAudio, TranslateAudio }) => {
   const dispatch = useDispatch();
   const [repeat, setRepeat] = useState(false);
   const [qari, setQari] = useState(false);
@@ -28,44 +35,48 @@ const Footer: React.FC <footeritems> = ({ AyehAudio,TranslateAudio}) => {
   const [text, setText] = useState(false);
   const localQariPlayer = useSelector(LocalQariPlayer);
   const localTranslate = useSelector(Localtranslate);
+  const sideShow = useSelector(SideShow)
   const playing = useSelector(Playing);
   let selectedQari = "";
   let selectTranslate = "";
-  
+
   const changeRepeat = () => {
+    dispatch(changeSideShow(false))
     setRepeat(!repeat);
     setQari(false);
     setTranslate(false);
     setText(false);
   };
   const changeQari = () => {
+    dispatch(changeSideShow(false))
     setRepeat(false);
     setQari(!qari);
     setTranslate(false);
     setText(false);
   };
   const changeTranslate = () => {
+    dispatch(changeSideShow(false))
     setRepeat(false);
     setQari(false);
     setTranslate(!translate);
     setText(false);
   };
   const changeText = () => {
+    dispatch(changeSideShow(false))
     setRepeat(false);
     setQari(false);
     setTranslate(false);
     setText(!text);
   };
   const changePlay = () => {
-    if(playing){
-      dispatch(IsPlaying(false))
-      AyehAudio?.pause()
-      TranslateAudio?.pause()
-    }else{
-      dispatch(IsPlaying(true))
+    if (playing) {
+      dispatch(IsPlaying(false));
+      AyehAudio?.pause();
+      TranslateAudio?.pause();
+    } else {
+      dispatch(IsPlaying(true));
     }
   };
-
   if (localQariPlayer === "Parhizgar_48kbps") {
     selectedQari = reciterParhizgar;
   } else if (localQariPlayer === "Ghamadi_40kbps") {
@@ -85,17 +96,17 @@ const Footer: React.FC <footeritems> = ({ AyehAudio,TranslateAudio}) => {
 
   return (
     <div
-      className={repeat || qari || translate || text ? "backgroundChanger" : ""}
+      className={repeat || qari || translate || text || sideShow ? "backgroundChanger" : ""}
     >
       <div className="quranMainBottomFooter">
         <div
           className={
-            repeat || qari || translate || text ? "footerWithSetting" : ""
+            repeat || qari || translate || text || sideShow ? "footerWithSetting" : ""
           }
         >
           <div
             className={
-              repeat || qari || translate || text ? "footerSetting" : ""
+              repeat || qari || translate || text || sideShow ? "footerSetting" : ""
             }
           >
             <div className="quranSettingBox">
@@ -103,6 +114,7 @@ const Footer: React.FC <footeritems> = ({ AyehAudio,TranslateAudio}) => {
               {qari ? <QariPlayer showButton={false} /> : ""}
               {translate ? <Translate /> : ""}
               {text ? <ShowText /> : ""}
+              {sideShow ? <SideAyeh /> : ""}
             </div>
           </div>
         </div>

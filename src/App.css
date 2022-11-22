@@ -1,13 +1,41 @@
+@font-face {
+    font-family: IRANSans;
+    src: url(/src/fonts/IRANSansX-Medium.woff2);
+}
+@font-face {
+    font-family: Uthmani;
+    src: url(/src/fonts/me-quran.woff);
+
+}
+@font-face {
+    font-family: Muhammad;
+    src: url(/src/fonts/MUHAMMADI\ QURANIC\ FONT.ttf);
+}
+@font-face {
+    font-family: Vazeh;
+    src: url(/src/fonts/Vazir-Variable.woff);
+}
+@font-face {
+    font-family: AppleColorEmoji;
+    src: url(/src/fonts/Apple\ Color\ Emoji.woff);
+}
+@font-face {
+    font-family: SegoeUIEmoji;
+    src: url(/src/fonts/seguiemj.ttf);
+}
+@font-face {
+    font-family: SegoeUISymbol;
+    src: url(/src/fonts/seguisym.ttf);
+}
 body{
     font-size: 16px;
-    font-family: IRANSans, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: IRANSans, "AppleColorEmoji", "SegoeUIEmoji", "SegoeUISymbol";
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     user-select: none;
     color: #444444;
     overflow-y: scroll;
-
 }
 *, *::before, *::after {
     box-sizing: inherit;

@@ -44,11 +44,6 @@
     font-family: Vazeh, Muhammad, IranSans;
     line-height: 2;
 }
-.fontVazeh2{
-    font-family: Vazeh, Muhammad, IranSans;
-    font-feature-settings: "jalt", "dlig", "kern" off;
-    line-height: 2;
-}
 .fontMuhammad{
     font-family: Muhammad, IranSans;
     font-feature-settings: "dlig" off;
@@ -86,7 +81,6 @@
     top: 4.375rem !important;
     position: sticky !important;
 }
-
 .mainAyehNumber{
     width: 2.625rem;
     height: 2.625rem;

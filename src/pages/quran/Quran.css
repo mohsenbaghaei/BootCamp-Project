@@ -11,6 +11,7 @@
     padding-bottom: 4.8em;
     flex: 1 1;
     font-size: 0.875rem;
+    min-height: 85vh;
 }
 .topIcon{
     width: 100%;
@@ -27,7 +28,6 @@
     width: 100%;
     height: 100%;
     fill: currentColor;
-    
 }
 .quranCenter{
     display: flex !important;
@@ -56,7 +56,6 @@
     min-width: 4.375rem;
     cursor: pointer;
     font-size:inherit;
-    
 }
 .multiSwitchButton--active {
     background: #DBD4C7;

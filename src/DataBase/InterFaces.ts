@@ -3,9 +3,7 @@ export interface suraData {
     index : number;
     juz ?: number[];
     page ? : number;
-
 }
-
 export interface HeaderName {
     headerName: string;
     headerSubName?: string;
@@ -16,6 +14,7 @@ export interface HeaderName {
 export interface QuranAyehs {
     ayeh : (string | number)[] ;
     index : number;
+    play : (index : number) => void;
 }
 export interface qariButton {
     showButton? : boolean ;
@@ -24,5 +23,6 @@ export interface footeritems {
     AyehAudio ? : HTMLAudioElement
     TranslateAudio ? : HTMLAudioElement
 }
-
-
+export interface singleAyeh {
+    ayeh : any
+}

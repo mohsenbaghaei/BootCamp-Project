@@ -40,12 +40,10 @@
   color: inherit;
   margin-right: 5px;
 }
-/*  */
 .quranSettingRadioBoxEnable {
   background-color: #efead9;
   border-radius: 0.5rem;
 }
-/*  */
 .settingImage {
   width: 2.188rem !important;
   height: 2.188rem !important;
@@ -137,7 +135,6 @@
 .settingAyehNum {
   position: relative;
 }
-/*  */
 .fontAyehWeightThin {
   font-weight: normal;
 }
@@ -198,4 +195,3 @@
 .fontTranslateSizeVB {
   font-size: 1.25rem;
 }
-/*  */

@@ -40,16 +40,6 @@ const ShowText = () => {
             <input
               type="radio"
               name="AyehFont"
-              value="fontVazeh2"
-              checked={localAyehFont === "fontVazeh2"}
-              onChange={() => dispatch(ayehFont("fontVazeh2"))}
-            />
-            <p className="textInput">واضح 2</p>
-          </label>
-          <label className="quranSettingRadioBox">
-            <input
-              type="radio"
-              name="AyehFont"
               value="fontMuhammad"
               checked={localAyehFont === "fontMuhammad"}
               onChange={() => dispatch(ayehFont("fontMuhammad"))}

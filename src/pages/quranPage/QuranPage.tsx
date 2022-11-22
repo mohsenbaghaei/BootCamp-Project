@@ -27,6 +27,9 @@ import {
 } from "../../redux/audio/audioSlice";
 
 const QuranPage: React.FC = () => {
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   useEffect(() => {
     const initialLocal = localStorage?.getItem("InitialLocal");
     if (!initialLocal) {
@@ -311,8 +314,8 @@ const QuranPage: React.FC = () => {
 
           <div>
             {mainData.map((ayeh, index) => (
-              <div key={index} onClick={() => play(index)}>
-                <QuranAyeh ayeh={ayeh} index={index} />
+              <div key={index} >
+                <QuranAyeh ayeh={ayeh} index={index} play={play}/>
               </div>
             ))}
           </div>

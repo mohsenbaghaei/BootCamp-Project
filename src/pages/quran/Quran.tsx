@@ -7,6 +7,9 @@ import { Sura, Page, Juz } from "../../DataBase/QuranDate";
 import Footer from "../../components/footer/Footer";
 
 const Quran: React.FC = () => {
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   const [currentPage, setCurrentPage] = useState(1);
   const [itemValue, setItemValue] = useState("");
   // const [sura , setSura] = useState('')
@@ -34,6 +37,13 @@ const Quran: React.FC = () => {
   
   useEffect(() => {
     if (currentPage === 1) {
+
+      mainSura.map((sura , hi)=>{
+        if(typeof(sura[0][4]) === 'string' && sura[0][4].match(itemValue)){
+          mainSura.filter((item , index) => item[index] !== item[hi])
+          console.log(hi);
+        }
+      })
     } else if (currentPage === 2) {
     } else if (currentPage === 3 && itemValue) {
       if (+itemValue === 0) {
@@ -77,6 +87,7 @@ const Quran: React.FC = () => {
     }
     return 0;
   });
+
   return (
     <div className="quranContainer">
       <div>

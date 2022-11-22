@@ -1,8 +1,9 @@
+import { useState , useEffect } from "react";
 import "./QuranAyeh.css";
 import { QuranAyehs } from "../../DataBase/InterFaces";
 import quranbackdrop from "../../images/quranbackdrop.svg";
 import { Sura, Juz } from "../../DataBase/QuranDate";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch } from "react-redux";
 
 import {
   LocalayehFont,
@@ -12,9 +13,17 @@ import {
   LocaltranslateBigness,
   LocalShowAyeh
 } from "../../redux/setting/settingSlice";
+
+import { changeSideShow , changeCopyAyeh , CopyAyeh , ShareAyeh , changeShareAyeh } from '../../redux/sideAyeh/sideAyehSlice'
+
 import { CurrentAyeh } from '../../redux/audio/audioSlice'
 
-const QuranAyeh: React.FC<QuranAyehs> = ({ ayeh , index }) => {
+const QuranAyeh: React.FC<QuranAyehs> = ({ ayeh , index , play}) => {
+  const [CSAyeh , setCSAyeh] = useState('')
+  const [CSTranslate , setCSTranslate] = useState('')
+  const [CSSura , setCSSura] = useState('')
+  const [CSAyehNumber , setCSAyehNumber] = useState('')
+  const dispatch = useDispatch()
   const localShowAyeh = useSelector(LocalShowAyeh);
   const localAyehFont = useSelector(LocalayehFont);
   const localAyehThickness = useSelector(LocalayehThickness);
@@ -22,11 +31,52 @@ const QuranAyeh: React.FC<QuranAyehs> = ({ ayeh , index }) => {
   const localTranslateThickness = useSelector(LocaltranslateThickness);
   const localTranslateBigness = useSelector(LocaltranslateBigness);
   const currentAyeh = useSelector(CurrentAyeh) 
+  const copyAyeh = useSelector(CopyAyeh) 
+  const shareAyeh = useSelector(ShareAyeh) 
 
   let suraJuz = Juz.findIndex(
     (juz) => +ayeh[3] === juz[0] && juz[1] === ayeh[2]
   );
   let mainSuraDetail = Sura[+ayeh[3] - 1];
+
+  useEffect(() => {
+    if(copyAyeh && CSAyeh === ayeh[0]){
+      navigator.clipboard.writeText(`${CSAyeh} - ${CSTranslate} - سوره ${CSSura} - آیه ${CSAyehNumber}`)
+      setCSAyeh('')
+      setCSTranslate('')
+      setCSSura('')
+      setCSAyehNumber('')
+      dispatch(changeCopyAyeh(false))
+    }
+  },[copyAyeh])
+
+  useEffect(() => {
+    if(shareAyeh && CSAyeh === ayeh[0]){
+      if (navigator.share) {
+        navigator.share({
+            title: `${CSAyeh} - ${CSTranslate} - سوره ${CSSura} - آیه ${CSAyehNumber}`,
+            url: 'http://bestProjectInshallah.com'
+        }).then(() => {
+            console.log('Thanks for sharing!');
+        })
+    } else {
+        alert("Browser doesn't support this API !");
+    }
+    console.log('object');
+      setCSAyeh('')
+      setCSTranslate('')
+      setCSSura('')
+      setCSAyehNumber('')
+      dispatch(changeShareAyeh(false))
+    }
+  },[shareAyeh])
+  const handleSide = () => {
+    dispatch(changeSideShow(true));
+    setCSAyeh(`${ayeh[0]}`);
+    setCSTranslate(`${ayeh[1]}`)
+    setCSSura(`${Sura[+ayeh[3]-1][4]}`)
+    setCSAyehNumber(`${ayeh[2]}`)
+  }
   return (
     <>
       {ayeh[2] === 1 ? (
@@ -62,7 +112,7 @@ const QuranAyeh: React.FC<QuranAyehs> = ({ ayeh , index }) => {
         ""
       )}
       <div className={index === currentAyeh ? "quranMainAyeh quranMainAyehPlay" : "quranMainAyeh"}>
-        <div className="quranAyeh">
+        <div className="quranAyeh" onClick={()=>play(index)}>
           {localShowAyeh === "true" ? (
             <>
               <div className="ayehView">
@@ -114,7 +164,7 @@ const QuranAyeh: React.FC<QuranAyehs> = ({ ayeh , index }) => {
             </i>
             <span className="ayehNummber">{ayeh[2]}</span>
           </div>
-          <div className="mainAyehNumber quranCenter fasele">
+          <div className="mainAyehNumber quranCenter fasele" onClick={handleSide}>
             <i className="ayehNummberIcon icon share">
               <svg viewBox="0 0 6 24" className="svg">
                 <path
