@@ -1,28 +1,29 @@
 export interface suraData {
-    sura?: (string | number)[]
-    index : number;
-    juz ?: number[];
-    page ? : number;
+  sura?: (string | number)[];
+  index: number;
+  juz?: number[];
+  page?: number;
 }
 export interface HeaderName {
-    headerName: string;
-    headerSubName?: string;
-    isSetting: boolean;
-    AyehAudio ? : HTMLAudioElement
-    TranslateAudio ? : HTMLAudioElement
+  headerName: string;
+  headerSubName?: string;
+  isSetting: boolean;
+  AyehAudio?: HTMLAudioElement;
+  TranslateAudio?: HTMLAudioElement;
 }
 export interface QuranAyehs {
-    ayeh : (string | number)[] ;
-    index : number;
-    play : (index : number) => void;
+  ayeh: (string | number)[];
+  index: number;
+  play: (index: number) => void;
 }
 export interface qariButton {
-    showButton? : boolean ;
+  showButton?: boolean;
 }
 export interface footeritems {
-    AyehAudio ? : HTMLAudioElement
-    TranslateAudio ? : HTMLAudioElement
+  AyehAudio?: HTMLAudioElement;
+  TranslateAudio?: HTMLAudioElement;
+  isPage: boolean;
 }
 export interface singleAyeh {
-    ayeh : any
+  ayeh: any;
 }

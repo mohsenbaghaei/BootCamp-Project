@@ -46,7 +46,10 @@ const Header: React.FC<HeaderName> = ({
             </div>
             {isSetting ? (
               <div className="mainHeaderActions" onClick={toSetting}>
-                <BiSearchAlt className="icons ml2" onClick={() => navigate('/search')} />
+                <BiSearchAlt
+                  className="icons ml2"
+                  onClick={() => navigate("/search")}
+                />
                 <IoSettingsOutline
                   className="icons"
                   onClick={() => navigate("/setting")}

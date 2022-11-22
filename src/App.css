@@ -1,65 +1,67 @@
 @font-face {
-    font-family: IRANSans;
-    src: url(/src/fonts/IRANSansX-Medium.woff2);
+  font-family: IRANSans;
+  src: url(/src/fonts/IRANSansX-Medium.woff2);
 }
 @font-face {
-    font-family: Uthmani;
-    src: url(/src/fonts/me-quran.woff);
-
+  font-family: Uthmani;
+  src: url(/src/fonts/me-quran.woff);
 }
 @font-face {
-    font-family: Muhammad;
-    src: url(/src/fonts/MUHAMMADI\ QURANIC\ FONT.ttf);
+  font-family: Muhammad;
+  src: url(/src/fonts/MUHAMMADI\ QURANIC\ FONT.ttf);
 }
 @font-face {
-    font-family: Vazeh;
-    src: url(/src/fonts/Vazir-Variable.woff);
+  font-family: Vazeh;
+  src: url(/src/fonts/Vazir-Variable.woff);
 }
 @font-face {
-    font-family: AppleColorEmoji;
-    src: url(/src/fonts/Apple\ Color\ Emoji.woff);
+  font-family: AppleColorEmoji;
+  src: url(/src/fonts/Apple\ Color\ Emoji.woff);
 }
 @font-face {
-    font-family: SegoeUIEmoji;
-    src: url(/src/fonts/seguiemj.ttf);
+  font-family: SegoeUIEmoji;
+  src: url(/src/fonts/seguiemj.ttf);
 }
 @font-face {
-    font-family: SegoeUISymbol;
-    src: url(/src/fonts/seguisym.ttf);
+  font-family: SegoeUISymbol;
+  src: url(/src/fonts/seguisym.ttf);
 }
-body{
-    font-size: 16px;
-    font-family: IRANSans, "AppleColorEmoji", "SegoeUIEmoji", "SegoeUISymbol";
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    user-select: none;
-    color: #444444;
-    overflow-y: scroll;
+body {
+  font-size: 16px;
+  font-family: IRANSans, "AppleColorEmoji", "SegoeUIEmoji", "SegoeUISymbol";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  color: #444444;
+  overflow-y: scroll;
 }
-*, *::before, *::after {
-    box-sizing: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
-.container{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    min-height: 100% !important;
-    max-width: 37.5rem;
-    margin:  0 auto;
-    direction: rtl;
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100% !important;
+  max-width: 37.5rem;
+  margin: 0 auto;
+  direction: rtl;
 }
-.routerRoot{
-    flex: 1 0 auto;
-    width: 100%;
-    position: relative;
+.routerRoot {
+  flex: 1 0 auto;
+  width: 100%;
+  position: relative;
 }
-div , svg{
-    display: block;
+div,
+svg {
+  display: block;
 }
-.Link{
-    text-decoration: none;
+.Link {
+  text-decoration: none;
 }
-i{
-    font-style: italic;
+i {
+  font-style: italic;
 }

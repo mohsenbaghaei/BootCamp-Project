@@ -1,75 +1,74 @@
-.suraItem{
-    height: 3.25rem;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    margin: 0 0.5em;
-    padding: 0.5rem;
-    color: #5F5036;
-    cursor: pointer;
-    border-radius: 0.5rem;
-    content-visibility: auto;
-    text-align: inherit;
+.suraItem {
+  height: 3.25rem;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin: 0 0.5em;
+  padding: 0.5rem;
+  color: #5f5036;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  content-visibility: auto;
+  text-align: inherit;
 }
-.suraitemSecond{
-    background-color: rgba(225, 219, 208, 0.5);
+.suraitemSecond {
+  background-color: rgba(225, 219, 208, 0.5);
 }
-.suraNumber{
-    width: 2.625rem;
-    height: 2.625rem;
-    position: relative !important;
-    flex-shrink: 0;
-    text-decoration: none;
+.suraNumber {
+  width: 2.625rem;
+  height: 2.625rem;
+  position: relative !important;
+  flex-shrink: 0;
+  text-decoration: none;
 }
-.quranCenter{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+.quranCenter {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
-.quranSuraNummber{
-    position: absolute !important;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: inherit;
-    height: inherit;
+.quranSuraNummber {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
 }
-.mainSuraNummber{
-    position: relative !important;
+.mainSuraNummber {
+  position: relative !important;
 }
-.svg{
-    width: 100%;
-    height: 100%;
-    fill: currentColor; 
-    display: block;  
+.svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  display: block;
 }
-.suraName{
-    margin-right: 0.5rem;
-    
+.suraName {
+  margin-right: 0.5rem;
 }
-.flexGrow{
-    flex-grow: 1 !important;
+.flexGrow {
+  flex-grow: 1 !important;
 }
-.truncateText{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+.truncateText {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
-.shrink{
-    flex-shrink: 0;
+.shrink {
+  flex-shrink: 0;
 }
-.itemButton{
-    background: transparent;
-    margin-right: 0.7rem;
-    border: 0;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    cursor: pointer;
+.itemButton {
+  background: transparent;
+  margin-right: 0.7rem;
+  border: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
 }
-.itemButtonPlay{
-    background: #00B3A0;
-    color: white;
-    padding: 0.53rem 0.5rem 0.53rem 0.6rem
+.itemButtonPlay {
+  background: #00b3a0;
+  color: white;
+  padding: 0.53rem 0.5rem 0.53rem 0.6rem;
 }

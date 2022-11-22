@@ -1,107 +1,106 @@
-.backgroundChanger{
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 10001;
+.backgroundChanger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10001;
 }
-.quranMainBottomFooter{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    max-width: 37.5rem;
-    margin: 0 auto;
-    z-index: 10002;
+.quranMainBottomFooter {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  max-width: 37.5rem;
+  margin: 0 auto;
+  z-index: 10002;
 }
-.footerWithSetting{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    flex-grow: 1 !important;
-    flex-direction: column !important;
+.footerWithSetting {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-grow: 1 !important;
+  flex-direction: column !important;
 }
-.footerSetting{
-    border-top-right-radius: 1rem;
-    border-top-left-radius: 1rem;
-    background-image: url(/src/images/nasim-rezvan-bg-pattern.18658f7.png);
-    background-color: #faf9f6;
-    padding-bottom: 5rem;
-    flex: 1 1;
-    font-size: 0.875rem;
-    min-height: 100%;
+.footerSetting {
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  background-image: url(/src/images/nasim-rezvan-bg-pattern.18658f7.png);
+  background-color: #faf9f6;
+  padding-bottom: 5rem;
+  flex: 1 1;
+  font-size: 0.875rem;
+  min-height: 100%;
 }
-.quranBottomMainFooter{
-    background: #FFFFFF;
-    box-shadow: 0px -0.125rem 0.75rem -0.25rem rgb(0 0 0 / 25%);
-    border-radius: 1rem 1rem 0px 0px;
-    height: 3.5rem;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    position: relative;
+.quranBottomMainFooter {
+  background: #ffffff;
+  box-shadow: 0px -0.125rem 0.75rem -0.25rem rgb(0 0 0 / 25%);
+  border-radius: 1rem 1rem 0px 0px;
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  position: relative;
 }
-.quranButtonFooter{
-    width: 20%;
-    border: 0;
-    background: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    appearance: auto;
-    writing-mode: horizontal-tb !important;
+.quranButtonFooter {
+  width: 20%;
+  border: 0;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  appearance: auto;
+  writing-mode: horizontal-tb !important;
 }
-.quranButtonItem{
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.quranButtonItem {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-.quranButtonIcon{
-    width: 1.125rem;
-    height: 1.125rem;
-    justify-content: center;
-    align-items: center;
-    display: block;
+.quranButtonIcon {
+  width: 1.125rem;
+  height: 1.125rem;
+  justify-content: center;
+  align-items: center;
+  display: block;
 }
-.quranButtonIcon{
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
+.quranButtonIcon {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
 }
-.quranButtonIconActiov{
-    color: #00B3A0;
+.quranButtonIconActiov {
+  color: #00b3a0;
 }
-.fotterSvg{
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
+.fotterSvg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
 }
-.quranButtonFooterPlay{
-    background: #00B3A0;
-    box-shadow: 0px 0.125rem 0.75rem #00b3a0;
-    color: white;
-    border-radius: 50%;
-    width: 2.625rem;
-    height: 2.625rem;
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.quranButtonFooterPlay {
+  background: #00b3a0;
+  box-shadow: 0px 0.125rem 0.75rem #00b3a0;
+  color: white;
+  border-radius: 50%;
+  width: 2.625rem;
+  height: 2.625rem;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-.quranButtonPlay{
-    width: 1.125rem;
-    height: 1.125rem;
-    justify-content: center;
-    align-items: center;
-    display: block;
+.quranButtonPlay {
+  width: 1.125rem;
+  height: 1.125rem;
+  justify-content: center;
+  align-items: center;
+  display: block;
 }
-

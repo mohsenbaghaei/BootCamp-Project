@@ -1,8 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  LocalQariPlayer,
-  qariPlayer,
-} from "../redux/setting/settingSlice";
+import { LocalQariPlayer, qariPlayer } from "../redux/setting/settingSlice";
 import reciterParhizgar from "../images/reciterParhizgar.png";
 import reciterAbdulbasit from "../images/reciterAbdulbasit.jpg";
 import reciterAlghamadi from "../images/reciterAlghamadi.jpg";

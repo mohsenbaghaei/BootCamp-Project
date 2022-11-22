@@ -1,188 +1,188 @@
-.quranMainAyeh{
-    cursor: pointer !important;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.938rem;
-    text-align: inherit;
+.quranMainAyeh {
+  cursor: pointer !important;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.938rem;
+  text-align: inherit;
 }
 .quranMainAyehPlay {
-    background-color: rgba(176, 122, 26, 0.05);
-    color: #2D9C1B;
+  background-color: rgba(176, 122, 26, 0.05);
+  color: #2d9c1b;
 }
-.quranAyeh{
-    padding-left: 0.563rem;
-    flex-grow: 1;
-    flex-basis: 0;
+.quranAyeh {
+  padding-left: 0.563rem;
+  flex-grow: 1;
+  flex-basis: 0;
 }
-.ayehView{
-    text-align: justify;
-    white-space: normal;
-    margin-bottom: 0.6rem;
+.ayehView {
+  text-align: justify;
+  white-space: normal;
+  margin-bottom: 0.6rem;
 }
-.fontAyehWeightThin{
-    font-weight: normal;
+.fontAyehWeightThin {
+  font-weight: normal;
 }
-.fontAyehWeightThick{
-    font-weight:bolder;
+.fontAyehWeightThick {
+  font-weight: bolder;
 }
-.fontAyehSizeVS{
-    font-size: 1.125rem;
+.fontAyehSizeVS {
+  font-size: 1.125rem;
 }
-.fontAyehSizeS{
-    font-size: 1.25rem;
+.fontAyehSizeS {
+  font-size: 1.25rem;
 }
-.fontAyehSizeN{
-    font-size: 1.375rem;
+.fontAyehSizeN {
+  font-size: 1.375rem;
 }
-.fontAyehSizeB{
-    font-size: 1.5rem;
+.fontAyehSizeB {
+  font-size: 1.5rem;
 }
-.fontAyehSizeVB{
-    font-size: 1.815rem;
+.fontAyehSizeVB {
+  font-size: 1.815rem;
 }
-.fontVazeh{
-    font-family: Vazeh, Muhammad, IranSans;
-    line-height: 2;
+.fontVazeh {
+  font-family: Vazeh, Muhammad, IranSans;
+  line-height: 2;
 }
-.fontMuhammad{
-    font-family: Muhammad, IranSans;
-    font-feature-settings: "dlig" off;
-    line-height: 2;
+.fontMuhammad {
+  font-family: Muhammad, IranSans;
+  font-feature-settings: "dlig" off;
+  line-height: 2;
 }
-.fontUthmani{
-    font-family: Uthmani, IranSans;
-    line-height: 2;
+.fontUthmani {
+  font-family: Uthmani, IranSans;
+  line-height: 2;
 }
-.fontTranslateWeightThin{
-    font-weight: normal;
+.fontTranslateWeightThin {
+  font-weight: normal;
 }
-.fontTranslateWeightThick{
-    font-weight: bolder;
+.fontTranslateWeightThick {
+  font-weight: bolder;
 }
-.fontTranslateSizeVS{
-    font-size: 0.69rem;
+.fontTranslateSizeVS {
+  font-size: 0.69rem;
 }
-.fontTranslateSizeS{
-    font-size: 0.815rem;
+.fontTranslateSizeS {
+  font-size: 0.815rem;
 }
-.fontTranslateSizeN{
-    font-size: 0.935rem;
+.fontTranslateSizeN {
+  font-size: 0.935rem;
 }
-.fontTranslateSizeB{
-    font-size: 1.125rem;
+.fontTranslateSizeB {
+  font-size: 1.125rem;
 }
-.fontTranslateSizeVB{
-    font-size: 1.25rem;
+.fontTranslateSizeVB {
+  font-size: 1.25rem;
 }
-.ayehSide{
-    width: 2.625rem !important;
-    cursor: pointer !important;
-    text-align: inherit;
-    top: 4.375rem !important;
-    position: sticky !important;
+.ayehSide {
+  width: 2.625rem !important;
+  cursor: pointer !important;
+  text-align: inherit;
+  top: 4.375rem !important;
+  position: sticky !important;
 }
-.mainAyehNumber{
-    width: 2.625rem;
-    height: 2.625rem;
-    position: relative;
-    flex-shrink: 0;
+.mainAyehNumber {
+  width: 2.625rem;
+  height: 2.625rem;
+  position: relative;
+  flex-shrink: 0;
 }
-.ayehNummberIcon{
-    position: absolute !important;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: inherit;
-    height: inherit;
+.ayehNummberIcon {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
 }
 
 .svg {
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
-    display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  display: block;
 }
-.ayehNummber{
-    position: relative;
+.ayehNummber {
+  position: relative;
 }
-.fasele{
-    margin-top: 0.4rem;
+.fasele {
+  margin-top: 0.4rem;
 }
-.share{
-    width: 52% !important;
-    height: 52% !important;
-    margin-right: 10px;
+.share {
+  width: 52% !important;
+  height: 52% !important;
+  margin-right: 10px;
 }
-.quranJuz{
-    color: white;
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 14%;
-    text-align: center;
+.quranJuz {
+  color: white;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 14%;
+  text-align: center;
 }
-.mainSuraDetail{
-    display: flex !important;
+.mainSuraDetail {
+  display: flex !important;
 }
-.mainSuraStart{
-    background: linear-gradient(135deg, #3DB9D9 0%, #23849D 100%);
-    margin: 0.5rem 2.5rem;
-    border-radius: 1.25rem;
-    color: white;
-    text-align: center;
-    box-shadow: 0px 0.313rem 1.125rem 1px rgb(57 176 206 / 46%);
-    padding: 1.6rem;
-    position: relative;
-    flex-grow: 1 !important;
+.mainSuraStart {
+  background: linear-gradient(135deg, #3db9d9 0%, #23849d 100%);
+  margin: 0.5rem 2.5rem;
+  border-radius: 1.25rem;
+  color: white;
+  text-align: center;
+  box-shadow: 0px 0.313rem 1.125rem 1px rgb(57 176 206 / 46%);
+  padding: 1.6rem;
+  position: relative;
+  flex-grow: 1 !important;
 }
-.suraStart{
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+.suraStart {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
-.suraStartImg{
-    position: absolute;
-    right: 0 ;
-    left: auto ;
-    bottom: 0;
-    width: 70%;
+.suraStartImg {
+  position: absolute;
+  right: 0;
+  left: auto;
+  bottom: 0;
+  width: 70%;
 }
-.mainSuraName{
-    position: relative !important;
+.mainSuraName {
+  position: relative !important;
 }
-.suraNameIcon{
-    font-family: "icon-surah" !important;
-    font-style: normal;
-    font-weight: normal;
-    font-feature-settings: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    font-size: 2.5rem;
-    margin-bottom: 0.3rem;
+.suraNameIcon {
+  font-family: "icon-surah" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-feature-settings: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 2.5rem;
+  margin-bottom: 0.3rem;
 }
-.quranBasmalah{
-    position: relative;
-    padding-top: 1rem;
-    margin-top: 1rem;
+.quranBasmalah {
+  position: relative;
+  padding-top: 1rem;
+  margin-top: 1rem;
 }
-.quranBasmalahIcon{
-    width: 13.375rem;
-    max-width: 100%;
-    height: auto;
-    margin: auto;
+.quranBasmalahIcon {
+  width: 13.375rem;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
 }
 
-.quranBasmalah:after{
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    right: 0;
-    left: 0;
-    border-bottom: 1px solid white;
-    opacity: 0.5;
+.quranBasmalah:after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  left: 0;
+  border-bottom: 1px solid white;
+  opacity: 0.5;
 }

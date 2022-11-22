@@ -9,13 +9,13 @@ const initialState = {
   localTranslateThickness: localStorage.getItem("TranslateThickness"),
   localTranslateBigness: localStorage.getItem("TranslateBigness"),
 
-  localShowAyeh : localStorage.getItem("ShowAyeh") ,
+  localShowAyeh: localStorage.getItem("ShowAyeh"),
 
-  localQariPlayer : localStorage.getItem("QariPlayer") ,
+  localQariPlayer: localStorage.getItem("QariPlayer"),
 
-  localPlayAyeh : localStorage.getItem("PlayAyeh") ,
+  localPlayAyeh: localStorage.getItem("PlayAyeh"),
 
-  localAyehRepeat : localStorage.getItem("AyehRepeat"),
+  localAyehRepeat: localStorage.getItem("AyehRepeat"),
 };
 
 export const settingSlice = createSlice({
@@ -48,49 +48,44 @@ export const settingSlice = createSlice({
       localStorage.setItem("TranslateBigness", actions.payload);
     },
 
-    showAyeh : (state , actions) => {
-        state.localShowAyeh = actions.payload;
-        localStorage.setItem("ShowAyeh", actions.payload);
+    showAyeh: (state, actions) => {
+      state.localShowAyeh = actions.payload;
+      localStorage.setItem("ShowAyeh", actions.payload);
     },
 
-    qariPlayer : (state , actions) => {
-        state.localQariPlayer = actions.payload;
-        localStorage.setItem("QariPlayer", actions.payload);
-      },
+    qariPlayer: (state, actions) => {
+      state.localQariPlayer = actions.payload;
+      localStorage.setItem("QariPlayer", actions.payload);
+    },
 
-      playAyeh : (state , actions) => {
-        state.localPlayAyeh = actions.payload;
-        localStorage.setItem("PlayAyeh", actions.payload);
-      },
+    playAyeh: (state, actions) => {
+      state.localPlayAyeh = actions.payload;
+      localStorage.setItem("PlayAyeh", actions.payload);
+    },
 
-      ayehRepeat : (state , actions) => {
-        state.localAyehRepeat = actions.payload;
-        localStorage.setItem("AyehRepeat", actions.payload);
-      },
+    ayehRepeat: (state, actions) => {
+      state.localAyehRepeat = actions.payload;
+      localStorage.setItem("AyehRepeat", actions.payload);
+    },
   },
 });
 export const Localtranslate = (state) => state.setting.localTranslate;
 
 export const LocalayehFont = (state) => state.setting.localAyehFont;
-export const LocalayehThickness = (state) =>
-  state.setting.localAyehThickness;
+export const LocalayehThickness = (state) => state.setting.localAyehThickness;
 export const LocalayehBigness = (state) => state.setting.localAyehBigness;
 export const LocaltranslateThickness = (state) =>
   state.setting.localTranslateThickness;
 export const LocaltranslateBigness = (state) =>
   state.setting.localTranslateBigness;
 
-export const LocalShowAyeh = (state) =>
-state.setting.localShowAyeh;
+export const LocalShowAyeh = (state) => state.setting.localShowAyeh;
 
-export const LocalQariPlayer = (state) =>
-state.setting.localQariPlayer;
+export const LocalQariPlayer = (state) => state.setting.localQariPlayer;
 
-export const LocalPlayAyeh = (state) =>
-state.setting.localPlayAyeh;
+export const LocalPlayAyeh = (state) => state.setting.localPlayAyeh;
 
-export const LocalAyehRepeat = (state) =>
-state.setting.localAyehRepeat;
+export const LocalAyehRepeat = (state) => state.setting.localAyehRepeat;
 
 export const {
   translate,
@@ -102,7 +97,7 @@ export const {
   showAyeh,
   qariPlayer,
   playAyeh,
-  ayehRepeat
+  ayehRepeat,
 } = settingSlice.actions;
 
 export default settingSlice.reducer;

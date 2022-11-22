@@ -1,106 +1,105 @@
-.quranContainer{
-    background-color: #82bbca;
-    background-image: url(/src/images/pattern-body.76e29d6.png);
+.quranContainer {
+  background-color: #82bbca;
+  background-image: url(/src/images/pattern-body.76e29d6.png);
 }
-.quranMain{
-    padding-top: 0.1rem !important;
-    border-top-right-radius: 1rem;
-    border-top-left-radius: 1rem;
-    background: url(/src/images/nasim-rezvan-bg-pattern.18658f7.png);
-    background-color: #faf9f6;
-    padding-bottom: 4.8em;
-    flex: 1 1;
-    font-size: 0.875rem;
+.quranMain {
+  padding-top: 0.1rem !important;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  background: url(/src/images/nasim-rezvan-bg-pattern.18658f7.png);
+  background-color: #faf9f6;
+  padding-bottom: 4.8em;
+  flex: 1 1;
+  font-size: 0.875rem;
 }
-.quranPage_changePage{
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
+.quranPage_changePage {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
-.quranCenter{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+.quranCenter {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
-.changePageButton{
-    text-align: center;
-    min-width: 5.6em;
-    text-decoration: none;
-    border-radius: 0.25rem;
-    border: 0;
-    cursor: pointer;
-    outline: none;
-    position: relative;
-    color: white;
-    font-size: 0.9em;
+.changePageButton {
+  text-align: center;
+  min-width: 5.6em;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  color: white;
+  font-size: 0.9em;
 }
-.pageButton{
-    background: none !important;
-    height: 3.25rem;
-    font-weight: 700;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 !important;
-    white-space: nowrap;
-    flex-shrink: 0;
+.pageButton {
+  background: none !important;
+  height: 3.25rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 !important;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
-.corner{
-    display: block;
-    width: 1.438rem;
-    height: 100%;
-    flex-shrink: 0;
+.corner {
+  display: block;
+  width: 1.438rem;
+  height: 100%;
+  flex-shrink: 0;
 }
-.pageSvg{
-    width: 1.438rem !important;
-    height: 3.25rem !important;
+.pageSvg {
+  width: 1.438rem !important;
+  height: 3.25rem !important;
 }
-.pageButtonName{
-    width: 100%;
-    line-height: 2.875rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    font-size: 0.875rem;
-    border-top: 0.188rem solid #E8BC6B;
-    border-bottom: 0.188rem solid #E8BC6B;
-    min-width: 0;
-    white-space: nowrap;
-    background-color: rgb(92, 138, 105);
-    border-color: rgb(232, 188, 107);
-    color: rgb(255, 255, 255);
-    margin-left: -1px !important;
-    margin-right: -1px !important;
+.pageButtonName {
+  width: 100%;
+  line-height: 2.875rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: 0.875rem;
+  border-top: 0.188rem solid #e8bc6b;
+  border-bottom: 0.188rem solid #e8bc6b;
+  min-width: 0;
+  white-space: nowrap;
+  background-color: rgb(92, 138, 105);
+  border-color: rgb(232, 188, 107);
+  color: rgb(255, 255, 255);
+  margin-left: -1px !important;
+  margin-right: -1px !important;
 }
-.lodingContainer{
-    min-height: 100%;
-    padding: 0px !important;
-    margin: 0px !important;
+.lodingContainer {
+  min-height: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
 }
-.pageNumberMain{
-    content: "separator" !important;
-    position: relative;
-    padding: 0.5rem 0;
+.pageNumberMain {
+  content: "separator" !important;
+  position: relative;
+  padding: 0.5rem 0;
 }
-.pageNumberMain::before{
-    content: "";
-    border: 1px solid rgba(187, 196, 206, 0.2);
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 50%;
-    height: 0;
+.pageNumberMain::before {
+  content: "";
+  border: 1px solid rgba(187, 196, 206, 0.2);
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 50%;
+  height: 0;
 }
-.pageNumber{
-    content: "separator__inner" !important;
-    background: #D6BB8B;
-    color: #705A34;
-    border-radius: 1rem;
-    padding: 0.125rem 2rem;
-    position: relative;
-    margin: auto;
-    display: table;
+.pageNumber {
+  content: "separator__inner" !important;
+  background: #d6bb8b;
+  color: #705a34;
+  border-radius: 1rem;
+  padding: 0.125rem 2rem;
+  position: relative;
+  margin: auto;
+  display: table;
 }
-

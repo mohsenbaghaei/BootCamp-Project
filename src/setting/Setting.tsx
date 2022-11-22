@@ -10,6 +10,7 @@ import Translate from "./Translate";
 import SettingPreview from "./SettingPreview";
 import { useSelector } from "react-redux";
 import { Localtranslate } from "../redux/setting/settingSlice";
+import Footer from "../components/footer/Footer";
 
 const Setting: React.FC = () => {
   const localtranslate = useSelector(Localtranslate);
@@ -36,13 +37,16 @@ const Setting: React.FC = () => {
           <AyehRepeat />
         </div>
         <div className="quranSettingBox">
-          <QariPlayer showButton={true}/>
+          <QariPlayer showButton={true} />
         </div>
         <div className="quranSettingBox">
           <ShowText />
           <div className="settingMainSample">
             <SettingPreview />
           </div>
+        </div>
+        <div>
+          <Footer isPage={false} />
         </div>
       </div>
     </div>

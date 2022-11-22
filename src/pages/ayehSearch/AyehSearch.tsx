@@ -5,6 +5,7 @@ import quranSearchimage from "../../images/quranSearchimage.png";
 import { SearchAyeh } from "../../DataBase/SearchAyeh";
 import { Sura } from "../../DataBase/QuranDate";
 import SingleAyeh from "./SingleAyeh";
+import Footer from "../../components/footer/Footer";
 
 const AyehSearch = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -15,7 +16,7 @@ const AyehSearch = () => {
     SearchAyeh.map((ayeh, index) => {
       if (ayeh.match(searchValue)) {
         let suraIndex = Sura.findIndex((item) => index < item[0]);
-        searchData.push([Sura[suraIndex][4] , index]);
+        searchData.push([Sura[suraIndex][4], index]);
       }
     });
     setAyehLength(searchData);
@@ -43,7 +44,7 @@ const AyehSearch = () => {
               onChange={(event) => setSearchValue(event.target.value)}
               className="quranMainSearchInput"
             />
-            <span className="corner cornerFirst">
+            <span className="cornerSearch cornerFirst">
               <svg
                 viewBox="0 0 21 41"
                 fill="none"
@@ -59,7 +60,7 @@ const AyehSearch = () => {
                 ></path>
               </svg>
             </span>
-            <span className="corner cornerLast">
+            <span className="cornerSearch cornerLast">
               <svg
                 viewBox="0 0 21 41"
                 fill="none"
@@ -91,16 +92,16 @@ const AyehSearch = () => {
             <div className="singleAyehShow">
               {ayehLength.length !== 0 ? (
                 <>
-                <p className="singleAyehShowText">
-                  عبارت (({searchValue})) در {ayehLength.length} آیه پیدا شد
-                </p>
-                {ayehLength.map((ayeh :any)=>{
-                  <>
-                  {console.log(ayeh)}
-                  <p>{SearchAyeh[+ayeh[1]]}</p>
-                  <SingleAyeh ayeh={ayeh}/>
-                  </>
-                })}
+                  <p className="singleAyehShowText">
+                    عبارت (({searchValue})) در {ayehLength.length} آیه پیدا شد
+                  </p>
+                  {ayehLength.map((ayeh: any) => {
+                    <>
+                      {console.log(ayeh[0])}
+                      <p>{SearchAyeh[+ayeh[1]]}</p>
+                      <SingleAyeh ayeh={ayeh} />
+                    </>;
+                  })}
                 </>
               ) : (
                 <p className="notFound">موردی یافت نشد</p>
@@ -108,6 +109,7 @@ const AyehSearch = () => {
             </div>
           )}
         </div>
+        <Footer isPage={false} />
       </div>
     </div>
   );

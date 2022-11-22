@@ -7,9 +7,9 @@ import { Sura, Page, Juz } from "../../DataBase/QuranDate";
 import Footer from "../../components/footer/Footer";
 
 const Quran: React.FC = () => {
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  },[])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemValue, setItemValue] = useState("");
   // const [sura , setSura] = useState('')
@@ -34,16 +34,15 @@ const Quran: React.FC = () => {
       setItemValue("");
     }
   }, [currentPage]);
-  
+
   useEffect(() => {
     if (currentPage === 1) {
-
-      mainSura.map((sura , hi)=>{
-        if(typeof(sura[0][4]) === 'string' && sura[0][4].match(itemValue)){
-          mainSura.filter((item , index) => item[index] !== item[hi])
+      mainSura.map((sura, hi) => {
+        if (typeof sura[0][4] === "string" && sura[0][4].match(itemValue)) {
+          mainSura.filter((item, index) => item[index] !== item[hi]);
           console.log(hi);
         }
-      })
+      });
     } else if (currentPage === 2) {
     } else if (currentPage === 3 && itemValue) {
       if (+itemValue === 0) {
@@ -53,15 +52,15 @@ const Quran: React.FC = () => {
       }
     } else if (currentPage === 4) {
     }
-  }, [currentPage , itemValue]);
+  }, [currentPage, itemValue]);
 
   Sura.map((sura, index) => {
     let preId = Page.findIndex((item) => index + 1 === +item[0]);
     if (preId !== -1) {
       id = preId + 1;
     }
-    if(Page[id] !== undefined && Page[+id-1][1] !== 1){
-      id-=1
+    if (Page[id] !== undefined && Page[+id - 1][1] !== 1) {
+      id -= 1;
     }
     return mainSura.push([sura, id]);
   });
@@ -207,13 +206,15 @@ const Quran: React.FC = () => {
         <div className="quranHome">
           {currentPage === 1 ? (
             <>
-              {mainSura.map((sura: [(string | number)[], number], index: number) => (
-                <div key={index}>
-                  <Link to={`/page/${sura[1]}`} className="Link">
-                    <QuranSura sura={sura[0]} index={index} />
-                  </Link>
-                </div>
-              ))}
+              {mainSura.map(
+                (sura: [(string | number)[], number], index: number) => (
+                  <div key={index}>
+                    <Link to={`/page/${sura[1]}`} className="Link">
+                      <QuranSura sura={sura[0]} index={index} />
+                    </Link>
+                  </div>
+                )
+              )}
             </>
           ) : (
             ""
@@ -242,7 +243,7 @@ const Quran: React.FC = () => {
           )}
         </div>
         <div>
-          <Footer/>
+          <Footer isPage={false} />
         </div>
       </div>
     </div>
