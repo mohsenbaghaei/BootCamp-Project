@@ -64,7 +64,7 @@ const QuranAyeh: React.FC<QuranAyehs> = ({ ayeh, index, play }) => {
         navigator
           .share({
             title: `${CSAyeh} - ${CSTranslate} - سوره ${CSSura} - آیه ${CSAyehNumber}`,
-            url: "http://bestProjectInshallah.com",
+            url: "",
           })
           .then(() => {
             console.log("Thanks for sharing!");

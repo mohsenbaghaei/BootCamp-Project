@@ -12,10 +12,6 @@ const Quran: React.FC = () => {
   }, []);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemValue, setItemValue] = useState("");
-  // const [sura , setSura] = useState('')
-  // const [juz , setJuz] = useState('')
-  // const [page , setPage] = useState('')
-  // const [favorite , setFavorite] = useState('')
   const [holder, setHolder] = useState("");
 
   let mainSura: [(string | number)[], number][] = [];
@@ -37,12 +33,6 @@ const Quran: React.FC = () => {
 
   useEffect(() => {
     if (currentPage === 1) {
-      mainSura.map((sura, hi) => {
-        if (typeof sura[0][4] === "string" && sura[0][4].match(itemValue)) {
-          mainSura.filter((item, index) => item[index] !== item[hi]);
-          console.log(hi);
-        }
-      });
     } else if (currentPage === 2) {
     } else if (currentPage === 3 && itemValue) {
       if (+itemValue === 0) {

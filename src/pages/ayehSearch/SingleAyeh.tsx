@@ -1,4 +1,4 @@
-import React from "react";
+import React,{FC} from "react";
 import { useSelector } from "react-redux";
 import "./SingleAyeh.css";
 import { singleAyeh } from "../../DataBase/InterFaces";
@@ -16,7 +16,7 @@ import {
   Localtranslate,
 } from "../../redux/setting/settingSlice";
 
-const SingleAyeh: React.FC<singleAyeh> = ({ ayeh }) => {
+const SingleAyeh:FC<singleAyeh> = ({ ayeh }) => {
   const localShowAyeh = useSelector(LocalShowAyeh);
   const localAyehFont = useSelector(LocalayehFont);
   const localAyehThickness = useSelector(LocalayehThickness);
@@ -28,12 +28,9 @@ const SingleAyeh: React.FC<singleAyeh> = ({ ayeh }) => {
   if (localTranslate === "ansarian") {
     translate = TranslateAnsarian;
   }
-  console.log(ayeh[1]);
+
   return (
     <div>
-      <div className="singleMainAyehSearch">
-        <span className="singleMainAyehTitle">{ayeh[0]}</span>
-      </div>
       <div className="singleMainAyehItem">
         <div className="quranAyeh">
           {localShowAyeh === "true" ? (
@@ -42,14 +39,14 @@ const SingleAyeh: React.FC<singleAyeh> = ({ ayeh }) => {
                 <p
                   className={`${localAyehFont} ${localAyehThickness} ${localAyehBigness}`}
                 >
-                  {SearchAyeh[+ayeh[1]]}
+                  {SearchAyeh[+ayeh]}
                 </p>
               </div>
               <div className="ayehView">
                 <p
                   className={`${localTranslateThickness} ${localTranslateBigness}`}
                 >
-                  {translate[+ayeh[1]]}
+                  {translate[+ayeh]}
                 </p>
               </div>
             </>
@@ -58,7 +55,7 @@ const SingleAyeh: React.FC<singleAyeh> = ({ ayeh }) => {
               <p
                 className={`${localAyehFont} ${localAyehThickness} ${localAyehBigness}`}
               >
-                {SearchAyeh[+ayeh[1]]}
+                {SearchAyeh[+ayeh]}
               </p>
             </div>
           )}

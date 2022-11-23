@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useState,memo } from "react";
 import Header from "../../components/header/Header";
 import "./AyehSearch.css";
 import quranSearchimage from "../../images/quranSearchimage.png";
@@ -9,26 +9,15 @@ import Footer from "../../components/footer/Footer";
 
 const AyehSearch = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [ayehLength, setAyehLength] = useState([]);
-
-  const search = () => {
-    let searchData: any = [];
-    SearchAyeh.map((ayeh, index) => {
-      if (ayeh.match(searchValue)) {
-        let suraIndex = Sura.findIndex((item) => index < item[0]);
-        searchData.push([Sura[suraIndex][4], index]);
+  const ayehLength: any = [];
+  const search=()=>{
+    for(let i=0;i<SearchAyeh.length;i++){
+      if(SearchAyeh[i].includes(searchValue)){
+        ayehLength.push(i);
       }
-    });
-    setAyehLength(searchData);
-  };
-  useEffect(() => {
-    if (searchValue) {
-      let timer = setTimeout(() => search(), 2000);
-      return () => {
-        clearTimeout(timer);
-      };
     }
-  }, [searchValue]);
+  }
+  search();
   return (
     <div className="quranContainer">
       <div>
@@ -95,12 +84,10 @@ const AyehSearch = () => {
                   <p className="singleAyehShowText">
                     عبارت (({searchValue})) در {ayehLength.length} آیه پیدا شد
                   </p>
-                  {ayehLength.map((ayeh: any) => {
-                    <>
-                      {console.log(ayeh[0])}
-                      <p>{SearchAyeh[+ayeh[1]]}</p>
-                      <SingleAyeh ayeh={ayeh} />
-                    </>;
+                  {ayehLength.map( (ayehIndex:any) =>{
+                    return(<div>
+                      <SingleAyeh ayeh={ayehIndex} />
+                    </div>)
                   })}
                 </>
               ) : (
@@ -115,4 +102,4 @@ const AyehSearch = () => {
   );
 };
 
-export default AyehSearch;
+export default memo(AyehSearch);
