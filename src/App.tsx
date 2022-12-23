@@ -1,8 +1,8 @@
 import React , { Suspense , lazy } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-const QuranPage  =lazy(() => import("./pages/quranPage/QuranPage"))
-const Setting =lazy(() => import("./setting/Setting"))
+import Setting from "./setting/Setting";
+import QuranPage from "./pages/quranPage/QuranPage";
 const AyehSearch =lazy(() => import("./pages/ayehSearch/AyehSearch"))
 const Quran =lazy(() => import("./pages/quran/Quran"))
 
