@@ -30,23 +30,7 @@ const QuranPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  useEffect(() => {
-    const initialLocal = localStorage?.getItem("InitialLocal");
-    if (!initialLocal) {
-      localStorage.setItem("InitialLocal", "true");
 
-      localStorage.setItem("ShowAyeh", "true");
-      localStorage.setItem("Translate", "makarem");
-      localStorage.setItem("PlayAyeh", "ayehTranslate");
-      localStorage.setItem("AyehRepeat", "noRepeat");
-      localStorage.setItem("QariPlayer", "Parhizgar_48kbps");
-      localStorage.setItem("AyehFont", "fontVazeh2");
-      localStorage.setItem("AyehThickness", "fontAyehWeightNormal");
-      localStorage.setItem("AyehBigness", "fontAyehSizeN");
-      localStorage.setItem("TranslateThickness", "fontTranslateWeightThick");
-      localStorage.setItem("fontTranslateSizeN", "fontTranslateSizeN");
-    }
-  }, []);
   const dispatch = useDispatch();
   const localTranslate = useSelector(Localtranslate);
   let localPlayAyeh = useSelector(LocalPlayAyeh);
