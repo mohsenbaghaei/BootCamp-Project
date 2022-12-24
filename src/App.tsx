@@ -3,8 +3,8 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import QuranPage  from "./pages/quranPage/QuranPage"
 import Setting  from"./setting/Setting"
+import Quran from "./pages/quran/Quran"
 const AyehSearch =lazy(() => import("./pages/ayehSearch/AyehSearch"))
-const Quran =lazy(() => import("./pages/quran/Quran"))
 
 const App: React.FC = () => {
   return (

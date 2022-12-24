@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  localTranslate: localStorage.getItem("Translate"),
+  localTranslate: localStorage.getItem("Translate") ? localStorage.getItem("Translate") : 'makarem',
 
-  localAyehFont: localStorage.getItem("AyehFont"),
-  localAyehThickness: localStorage.getItem("AyehThickness"),
-  localAyehBigness: localStorage.getItem("AyehBigness"),
-  localTranslateThickness: localStorage.getItem("TranslateThickness"),
-  localTranslateBigness: localStorage.getItem("TranslateBigness"),
+  localAyehFont: localStorage.getItem("AyehFont") ? localStorage.getItem("AyehFont") : 'fontVazeh2',
+  localAyehThickness: localStorage.getItem("AyehThickness") ? localStorage.getItem("AyehThickness") : 'fontAyehWeightNormal',
+  localAyehBigness: localStorage.getItem("AyehBigness") ? localStorage.getItem("AyehBigness") : 'fontAyehSizeN',
+  localTranslateThickness: localStorage.getItem("TranslateThickness") ? localStorage.getItem("TranslateThickness") : 'fontTranslateWeightThick',
+  localTranslateBigness: localStorage.getItem("TranslateBigness") ? localStorage.getItem("TranslateBigness") : 'fontTranslateSizeN',
 
-  localShowAyeh: localStorage.getItem("ShowAyeh"),
+  localShowAyeh: localStorage.getItem("ShowAyeh") ? localStorage.getItem("ShowAyeh") : 'true',
 
-  localQariPlayer: localStorage.getItem("QariPlayer"),
+  localQariPlayer: localStorage.getItem("QariPlayer") ? localStorage.getItem("QariPlayer") : 'Parhizgar_48kbps',
 
-  localPlayAyeh: localStorage.getItem("PlayAyeh"),
+  localPlayAyeh: localStorage.getItem("PlayAyeh") ? localStorage.getItem("PlayAyeh") : 'ayehTranslate',
 
-  localAyehRepeat: localStorage.getItem("AyehRepeat"),
+  localAyehRepeat: localStorage.getItem("AyehRepeat") ? localStorage.getItem("AyehRepeat") : 'noRepeat',
 };
 
 export const settingSlice = createSlice({

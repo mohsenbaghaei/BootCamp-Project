@@ -21,7 +21,7 @@ const Quran: React.FC = () => {
       localStorage.setItem("AyehThickness", "fontAyehWeightNormal");
       localStorage.setItem("AyehBigness", "fontAyehSizeN");
       localStorage.setItem("TranslateThickness", "fontTranslateWeightThick");
-      localStorage.setItem("fontTranslateSizeN", "fontTranslateSizeN");
+      localStorage.setItem("TranslateBigness", "fontTranslateSizeN");
     }
   }, []);
   useEffect(() => {
